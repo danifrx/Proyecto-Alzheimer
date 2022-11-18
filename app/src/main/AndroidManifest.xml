@@ -17,6 +17,9 @@
             android:name=".VentanaNota"
             android:exported="false" />
         <activity
+            android:name=".VentanaTest"
+            android:exported="false" />
+        <activity
             android:name=".VentanaFormulario"
             android:exported="false" />
         <activity
