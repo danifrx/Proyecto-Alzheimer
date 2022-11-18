@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Alzheimer"
         tools:targetApi="31">
         <activity
+            android:name=".VentanaNota"
+            android:exported="false" />
+        <activity
             android:name=".VentanaFormulario"
             android:exported="false" />
         <activity
