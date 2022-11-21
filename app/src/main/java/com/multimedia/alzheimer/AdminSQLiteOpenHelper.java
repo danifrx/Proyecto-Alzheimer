@@ -13,7 +13,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         final String crear_tabla_paciente =
                 "CREATE TABLE Paciente (" +
-                        "numPaciente integer primary key, " +
+                        "numPaciente integer primary key autoincrement, " +
                         "nombre char(20), " +
                         "apellidos char(50), " +
                         "resultadoAnterior tinyint, " +
