@@ -3,10 +3,11 @@ package com.multimedia.alzheimer;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.view.View;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
-    public AdminSQLiteOpenHelper (Context context, String nombreDB, SQLiteDatabase.CursorFactory factory, int version) {
-        super (context, nombreDB, factory, version);
+    public AdminSQLiteOpenHelper (View.OnClickListener context, String nombreDB, SQLiteDatabase.CursorFactory factory, int version) {
+        super ((Context) context, nombreDB, factory, version);
     }
 
     @Override
