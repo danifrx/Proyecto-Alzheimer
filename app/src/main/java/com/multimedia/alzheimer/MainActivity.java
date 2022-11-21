@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        editText_nombre = findViewById(R.id.editText_nombre);
-        editText_dni = findViewById(R.id.editText_dni);
-        button_iniciarsesion = findViewById(R.id.button_iniciarsesion);
-        button_registrar = findViewById(R.id.button_registrar);
+        editText_nombre = (EditText) findViewById(R.id.editText_nombre);
+        editText_dni = (EditText) findViewById(R.id.editText_dni);
+        button_iniciarsesion = (Button) findViewById(R.id.button_iniciarsesion);
+        button_registrar = (Button) findViewById(R.id.button_registrar);
 
         pulsarInicioSesion();
     }
