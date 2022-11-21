@@ -142,7 +142,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/button_Guardar"
+                android:id="@+id/button_GuardarDatos"
                 android:layout_width="wrap_content"
                 android:layout_height="70dp"
                 android:layout_weight="1"
