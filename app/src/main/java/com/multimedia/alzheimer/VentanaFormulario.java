@@ -3,6 +3,7 @@ package com.multimedia.alzheimer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -22,6 +23,7 @@ public class VentanaFormulario extends AppCompatActivity {
     String fecha="";
     String telefono="";
     String dni="";
+    String notaanterior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +80,6 @@ public class VentanaFormulario extends AppCompatActivity {
                         */
                     }
                 }
-
             }
         });
     }

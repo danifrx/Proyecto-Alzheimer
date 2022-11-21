@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     String[] condicion = {dni};
 
                     //El resultado de la consulta de select se guarda en el Cursor
-                    Cursor sesioniniciada = db.query("paciente",columnas, seleccion, condicion, null, null, null);
+                    Cursor sesioniniciada = db.query("Paciente",columnas, seleccion, condicion, null, null, null);
 
                     while(sesioniniciada.moveToNext()){
                         notaanterior = Integer.toString(sesioniniciada.getInt(3));
