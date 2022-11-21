@@ -3,7 +3,7 @@ package com.multimedia.alzheimer;
 import java.util.Date;
 
 public class Paciente {
-        private int nunPaciente;
+        private int numPaciente;
         private String nombre;
         private String apellidos;
         private int resultadoAnterior;
@@ -14,8 +14,8 @@ public class Paciente {
         public Paciente() {
         }
 
-        public Paciente(int nunPaciente, String nombre, String apellidos, int resultadoAnterior, Date fecha, String telefono, String dni) {
-                this.nunPaciente = nunPaciente;
+        public Paciente(int numPaciente, String nombre, String apellidos, int resultadoAnterior, Date fecha, String telefono, String dni) {
+                this.numPaciente = numPaciente;
                 this.nombre = nombre;
                 this.apellidos = apellidos;
                 this.resultadoAnterior = resultadoAnterior;
@@ -24,8 +24,8 @@ public class Paciente {
                 this.dni = dni;
         }
 
-        public Paciente(int nunPaciente, String nombre, String apellidos, Date fecha, String telefono, String dni) {
-                this.nunPaciente = nunPaciente;
+        public Paciente(int numPaciente, String nombre, String apellidos, Date fecha, String telefono, String dni) {
+                this.numPaciente = numPaciente;
                 this.nombre = nombre;
                 this.apellidos = apellidos;
                 this.fecha = fecha;
@@ -37,12 +37,12 @@ public class Paciente {
                 this.resultadoAnterior = resultadoAnterior;
         }
 
-        public int getNunPaciente() {
-                return nunPaciente;
+        public int numPaciente() {
+                return numPaciente;
         }
 
-        public void setNunPaciente(int nunPaciente) {
-                this.nunPaciente = nunPaciente;
+        public void numPaciente(int numPaciente) {
+                this.numPaciente = numPaciente;
         }
 
         public String getNombre() {

@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         button_registrar = (Button) findViewById(R.id.button_registrar);
 
         pulsarInicioSesion();
+        registrarse();
     }
 
     //Inicio de sesión de paciente en base de datos
@@ -81,6 +82,16 @@ public class MainActivity extends AppCompatActivity {
                 }
                 db.close();
 
+            }
+        });
+    }
+
+    public void registrarse() {
+        button_registrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),VentanaFormulario.class);
+                startActivity(i);
             }
         });
     }

@@ -3,6 +3,7 @@ package com.multimedia.alzheimer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -33,10 +34,10 @@ public class VentanaFormulario extends AppCompatActivity {
         editTextText_Telefono = (EditText) findViewById(R.id.editTextText_Telefono);
         editTextText_Dni = (EditText) findViewById(R.id.editTextText_Dni);
         button_GuardarDatos= (Button) findViewById(R.id.button_GuardarDatos);
-        pulsar_button_Guardar ();
+        pulsar_button_Guardar();
     }
 
-    public void pulsar_button_Guardar () {
+    public void pulsar_button_Guardar() {
         button_GuardarDatos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -50,13 +51,32 @@ public class VentanaFormulario extends AppCompatActivity {
                     Toast toast1= Toast.makeText(getApplicationContext(),"Rellene todos los datos",Toast.LENGTH_LONG);
                     toast1.show();
                 }else{
-                    Intent i = new Intent(view.getContext(), Main.class);//falta por escribir a ventana a que vou enviar os datos
-                    i.putExtra("Nombre",nombre);
-                    i.putExtra("Apellidos",apellidos);
-                    i.putExtra("Fecha",fecha);
-                    i.putExtra("Telefono",telefono);
-                    i.putExtra("Dni",dni);
-                    startActivity(i);
+                  //  Intent i = new Intent(view.getContext(), Main.class);//falta por escribir a ventana a que vou enviar os datos
+                   // i.putExtra("Nombre",nombre);
+                    //i.putExtra("Apellidos",apellidos);
+                    //i.putExtra("Fecha",fecha);
+                    //i.putExtra("Telefono",telefono);
+                    //i.putExtra("Dni",dni);
+                    //startActivity(i);
+
+                    AdminSQLiteOpenHelper dbHelper = new AdminSQLiteOpenHelper(this,"registro",null,1);
+                    SQLiteDatabase db = dbHelper.getWritableDatabase();
+                    if (db != null) {
+                        String sentencia = ("insert into Paciente (nombre, apellidos, fecha, telefono, dni) values ('" + nombre + "','" + apellidos + "','" +
+                                fecha + "','" + telefono + "','" + dni + "')");
+                        db.execSQL(sentencia);
+
+                        /*
+                        outra forma de añadir datos:
+                        ContentValues cv = new ContentValues();
+                        cv.put("nombre", nombre);
+                        cv.put("apellidos", apellidos);
+                        cv.put("fecha", fecha);
+                        cv.put("telefono", telefono);
+                        cv.put("dni", dni);
+                        db.insert("Paciente", null, cv);
+                        */
+                    }
                 }
 
             }
