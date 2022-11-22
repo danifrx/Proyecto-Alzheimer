@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.provider.BaseColumns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,14 @@ public class VentanaFormulario extends AppCompatActivity {
     String telefono="";
     String dni="";
     String notaanterior;
+
+    //Pruebas
+    private String nombre1;
+    private String apellido1;
+    private String fecha1;
+    private String telefono1;
+    private String dni1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +77,8 @@ public class VentanaFormulario extends AppCompatActivity {
                                 fecha + "','" + telefono + "','" + dni + "')");
                         db.execSQL(sentencia);
 
+                        db.close();
+
                         /*
                         outra forma de añadir datos:
                         ContentValues cv = new ContentValues();
@@ -80,6 +91,36 @@ public class VentanaFormulario extends AppCompatActivity {
                         */
                     }
                 }
+
+                //Apartir de aqui son pruebas!!!!
+                AdminSQLiteOpenHelper dbHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
+                SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
+
+
+                Cursor c = db1.rawQuery("SELECT nombre, apellidos, fecha, telefono, dni FROM Paciente", null);
+
+                if ( c.moveToFirst())  {
+
+                    do {
+                       // int numPaciente = c.getInt(c.getColumnIndex("numPaciente"));
+                        nombre1 = c.getString(1);
+                        apellido1 = c.getString(2);
+                        fecha1 = c.getString(4);
+                        telefono1 = c.getString(5);
+                        dni1 = c.getString(6);
+                    } while (c.moveToNext());
+                }
+                c.close();
+                db1.close();
+
+                //Abrimos o activity de pruebas que imprimir os datos da bd pa ver que funciona
+                Intent i = new Intent(view.getContext(),PruebasImprimirBD.class);
+                i.putExtra("nombre", nombre1);
+                i.putExtra("apellidos", apellido1);
+                i.putExtra("fecha", fecha1);
+                i.putExtra("telefono", telefono1);
+                i.putExtra("dni", dni1);
+                startActivity(i);
             }
         });
     }
