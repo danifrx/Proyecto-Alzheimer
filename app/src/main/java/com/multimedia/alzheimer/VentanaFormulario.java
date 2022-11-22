@@ -20,12 +20,12 @@ public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextText_Telefono;
     private EditText editTextText_Dni;
     private Button button_GuardarDatos;
-    String nombre="";
-    String apellidos="";
-    String fecha="";
-    String telefono="";
-    String dni="";
-    String notaanterior;
+    private String nombre="";
+    private String apellidos="";
+    private String fecha="";
+    private String telefono="";
+    private String dni="";
+    private String notaanterior;
 
     //Pruebas
     private String nombre1;
@@ -98,28 +98,33 @@ public class VentanaFormulario extends AppCompatActivity {
                         cv.put("dni", dni);
                         db.insert("Paciente", null, cv);
 
+                    db.close();
+
+                    //Apartir de aqui son pruebas!!!!
+                    AdminSQLiteOpenHelper dbHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
+                    SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
+
+
+                    Cursor c = db1.rawQuery("SELECT nombre, apellidos, fecha, telefono, dni FROM Paciente", null);
+
+                    if ( c.moveToFirst())  {
+
+                        do {
+                            // int numPaciente = c.getInt(c.getColumnIndex("numPaciente"));
+                            nombre1 = c.getString(1);
+                            apellido1 = c.getString(2);
+                            fecha1 = c.getString(4);
+                            telefono1 = c.getString(5);
+                            dni1 = c.getString(6);
+                        } while (c.moveToNext());
+                    }
+                    c.close();
+                    db1.close();
+
                 }
 
-                //Apartir de aqui son pruebas!!!!
-              AdminSQLiteOpenHelper dbHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
-                SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
 
 
-                Cursor c = db1.rawQuery("SELECT nombre, apellidos, fecha, telefono, dni FROM Paciente", null);
-
-                if ( c.moveToFirst())  {
-
-                    do {
-                       // int numPaciente = c.getInt(c.getColumnIndex("numPaciente"));
-                        nombre1 = c.getString(1);
-                        apellido1 = c.getString(2);
-                        fecha1 = c.getString(4);
-                        telefono1 = c.getString(5);
-                        dni1 = c.getString(6);
-                    } while (c.moveToNext());
-                }
-                c.close();
-                db1.close();
             }
         });
     }
@@ -128,7 +133,8 @@ public class VentanaFormulario extends AppCompatActivity {
         button_db.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Toast toast2= Toast.makeText(getApplicationContext(),nombre1,Toast.LENGTH_LONG);
+                toast2.show();
                 //Abrimos o activity de pruebas que imprimir os datos da bd pa ver que funciona
                 Intent i = new Intent(v.getContext(),PruebasImprimirBD.class);
                 i.putExtra("nombre", nombre1);
