@@ -23,8 +23,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                         "dni char(9))";
         db.execSQL(crear_tabla_paciente);
 
-        final String crear_tabla_text =
-                "CREATE TABLE Text (" +
+        final String crear_tabla_test =
+                "CREATE TABLE Test (" +
                         "numText integer primary key autoincrement, " +
                         "numPaciente integer, " +
                         "fecha date, " +
@@ -35,7 +35,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                         "r5 char(20), " +
                         "r6 char(20), " +
                         "foreign key (numPaciente) references Paciente(numPaciente))";
-        db.execSQL(crear_tabla_text);
+        db.execSQL(crear_tabla_test);
     }
 
     //Método para hacer cambio de versión de base de datos
@@ -44,6 +44,9 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         //gestion de cache online y cambio de version de base de datos
         // -> de momento no nos interesa realizar acciones en este caso
         //non sei que significa esto chavales, non teño a tecnología suficiente por ahora
+        // This database is only a cache for online data, so its upgrade policy is
+        // to simply to discard the data and start over
+
     }
 
     @Override
