@@ -32,7 +32,7 @@ public class VentanaFormulario extends AppCompatActivity {
     private String fecha1;
     private String telefono1;
     private String dni1;
-
+    private Button button_db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +45,12 @@ public class VentanaFormulario extends AppCompatActivity {
         editTextText_Telefono = (EditText) findViewById(R.id.editTextText_Telefono);
         editTextText_Dni = (EditText) findViewById(R.id.editTextText_Dni);
         button_GuardarDatos= (Button) findViewById(R.id.button_GuardarDatos);
+
         pulsar_button_Guardar();
+
+        //pruebas
+        button_db = (Button)  findViewById(R.id.button_bd);
+        pulsarBotonPruebas();
     }
 
     public void pulsar_button_Guardar() {
@@ -112,9 +117,16 @@ public class VentanaFormulario extends AppCompatActivity {
                 }
                 c.close();
                 db1.close();
+            }
+        });
+    }
 
+    public void pulsarBotonPruebas() {
+        button_db.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 //Abrimos o activity de pruebas que imprimir os datos da bd pa ver que funciona
-                Intent i = new Intent(view.getContext(),PruebasImprimirBD.class);
+                Intent i = new Intent(v.getContext(),PruebasImprimirBD.class);
                 i.putExtra("nombre", nombre1);
                 i.putExtra("apellidos", apellido1);
                 i.putExtra("fecha", fecha1);
@@ -124,4 +136,6 @@ public class VentanaFormulario extends AppCompatActivity {
             }
         });
     }
+
+
 }

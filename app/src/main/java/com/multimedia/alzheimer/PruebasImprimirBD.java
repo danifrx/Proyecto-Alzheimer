@@ -46,7 +46,7 @@ public class PruebasImprimirBD extends AppCompatActivity {
         pulsar();
     }
 
-    public void pulsar() {
+   public void pulsar() {
         button_inicio10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +54,6 @@ public class PruebasImprimirBD extends AppCompatActivity {
                 startActivity(i);
             }
         });
-    }
+   }
 
 }
