@@ -5,14 +5,19 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.view.View;
 
+
+
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
+
+    private static final String crear_tabla_paciente = "CREATE TABLE Paciente (numPaciente INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, apellidos TEXT, resultadoAnterior INTEGER, fecha DATE, telefono TEXT, dni TEXT)";;
+
     public AdminSQLiteOpenHelper (View.OnClickListener context, String nombreDB, SQLiteDatabase.CursorFactory factory, int version) {
         super ((Context) context, nombreDB, factory, version);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        final String crear_tabla_paciente =
+      /*  final String crear_tabla_paciente =
                 "CREATE TABLE Paciente (" +
                         "numPaciente integer primary key autoincrement, " +
                         "nombre char(20), " +
@@ -20,10 +25,11 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                         "resultadoAnterior tinyint, " +
                         "fecha date, " +
                         "telefono char(9), " +
-                        "dni char(9))";
+                        "dni char(9))";*/
+
         db.execSQL(crear_tabla_paciente);
 
-        final String crear_tabla_test =
+       /* final String crear_tabla_test =
                 "CREATE TABLE Test (" +
                         "numText integer primary key autoincrement, " +
                         "numPaciente integer, " +
@@ -35,7 +41,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                         "r5 char(20), " +
                         "r6 char(20), " +
                         "foreign key (numPaciente) references Paciente(numPaciente))";
-        db.execSQL(crear_tabla_test);
+        db.execSQL(crear_tabla_test);*/
     }
 
     //Método para hacer cambio de versión de base de datos

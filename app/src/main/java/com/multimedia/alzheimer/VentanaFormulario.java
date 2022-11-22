@@ -2,6 +2,7 @@ package com.multimedia.alzheimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -77,15 +78,18 @@ public class VentanaFormulario extends AppCompatActivity {
 
                     AdminSQLiteOpenHelper dbHelper = new AdminSQLiteOpenHelper(this,"registro",null,1);
                     SQLiteDatabase db = dbHelper.getWritableDatabase();
-                    if (db != null) {
+                    /*if (db != null) {
                         String sentencia = ("insert into Paciente (nombre, apellidos, fecha, telefono, dni) values ('" + nombre + "','" + apellidos + "','" +
                                 fecha + "','" + telefono + "','" + dni + "')");
                         db.execSQL(sentencia);
 
                         db.close();
 
-                        /*
-                        outra forma de añadir datos:
+
+                    }*/
+
+
+                       // outra forma de añadir datos:
                         ContentValues cv = new ContentValues();
                         cv.put("nombre", nombre);
                         cv.put("apellidos", apellidos);
@@ -93,12 +97,11 @@ public class VentanaFormulario extends AppCompatActivity {
                         cv.put("telefono", telefono);
                         cv.put("dni", dni);
                         db.insert("Paciente", null, cv);
-                        */
-                    }
+
                 }
 
                 //Apartir de aqui son pruebas!!!!
-                AdminSQLiteOpenHelper dbHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
+              AdminSQLiteOpenHelper dbHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
                 SQLiteDatabase db1 = dbHelper1.getReadableDatabase();
 
 
@@ -125,6 +128,7 @@ public class VentanaFormulario extends AppCompatActivity {
         button_db.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 //Abrimos o activity de pruebas que imprimir os datos da bd pa ver que funciona
                 Intent i = new Intent(v.getContext(),PruebasImprimirBD.class);
                 i.putExtra("nombre", nombre1);
