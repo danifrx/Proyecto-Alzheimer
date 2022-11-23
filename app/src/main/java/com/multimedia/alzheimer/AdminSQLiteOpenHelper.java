@@ -9,8 +9,9 @@ import android.view.View;
 
 public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
 
-    private static final String crear_tabla_paciente = "CREATE TABLE Paciente (numPaciente INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, apellidos TEXT, resultadoAnterior INTEGER, fecha DATE, telefono TEXT, dni TEXT)";
+    private static final String crear_tabla_paciente = "CREATE TABLE Paciente (numPaciente INTEGER PRIMARY KEY AUTOINCREMENT, nombre varchar(20), apellidos varchar(30), resultadoAnterior INTEGER, fecha DATE, telefono char(9), dni char(9))";
 
+   // private static final String crear_tabla_paciente = "CREATE TABLE Paciente (numPaciente INTEGER PRIMARY KEY AUTOINCREMENT, nombre TEXT, apellidos TEXT, resultadoAnterior INTEGER, fecha DATE, telefono TEXT, dni TEXT)";
 
  /*private static final String crear_tabla_paciente =
                 "CREATE TABLE Paciente (" +
