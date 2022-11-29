@@ -36,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
         registrarse();
     }
 
+    //Alta de producto en base de datos
+    public void alta(View v){
+        //Instancio la conexión con la BBDD
+       // AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"")
+    }
+
     //Inicio de sesión de paciente en base de datos
     public void pulsarInicioSesion(){
         button_iniciarsesion.setOnClickListener(new View.OnClickListener() {
@@ -43,9 +49,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 //Instancio la conexión con la base de datos
-                AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"registro",null,1);
+              //  AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"registro",null,1);
                 //Abro la conexión de base de datos, con permisos de lectura.
-                SQLiteDatabase db = adminHelper.getReadableDatabase();
+              //  SQLiteDatabase db = adminHelper.getReadableDatabase();
 
                 //Leo el nombre y el DNI introducido por el usuario
                 String nombre = editText_nombre.getText().toString();
@@ -68,19 +74,19 @@ public class MainActivity extends AppCompatActivity {
                     String[] condicion = {dni};
 
                     //El resultado de la consulta de select se guarda en el Cursor
-                    Cursor sesioniniciada = db.query("Paciente",columnas, seleccion, condicion, null, null, null);
+                   // Cursor sesioniniciada = db.query("Paciente",columnas, seleccion, condicion, null, null, null);
 
-                    while(sesioniniciada.moveToNext()){
+                /*    while(sesioniniciada.moveToNext()){
                         notaanterior = Integer.toString(sesioniniciada.getInt(3));
                     }
                     sesioniniciada.close();
-
+*/
                     //Paso la nota anterior del text realizado por el usuario a la activity de activity_ventana_nota.xml
                     Intent i = new Intent(v.getContext(),VentanaNota.class);
                     i.putExtra("nota",notaanterior);
                     startActivity(i);
                 }
-                db.close();
+              //  db.close();
 
             }
         });

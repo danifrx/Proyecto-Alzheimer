@@ -23,8 +23,8 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                         "dni char(9))";
  */
 
-    public AdminSQLiteOpenHelper (View.OnClickListener context, String nombreDB, SQLiteDatabase.CursorFactory factory, int version) {
-        super ((Context) context, nombreDB, factory, version);
+    public AdminSQLiteOpenHelper (Context context, String nombreDB, SQLiteDatabase.CursorFactory factory, int version) {
+        super (context, nombreDB, factory, version);
     }
 
     @Override
