@@ -308,7 +308,8 @@
                 android:id="@+id/spinner6"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:minHeight="200px" />
         </LinearLayout>
 
         <LinearLayout
