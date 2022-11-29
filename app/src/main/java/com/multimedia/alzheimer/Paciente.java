@@ -7,14 +7,14 @@ public class Paciente {
         private String nombre;
         private String apellidos;
         private int resultadoAnterior;
-        private Date fecha;
+        private String fecha;
         private String telefono;
         private String dni;
 
         public Paciente() {
         }
 
-        public Paciente(long numPaciente, String nombre, String apellidos, int resultadoAnterior, Date fecha, String telefono, String dni) {
+        public Paciente(long numPaciente, String nombre, String apellidos, int resultadoAnterior, String fecha, String telefono, String dni) {
                 this.numPaciente = numPaciente;
                 this.nombre = nombre;
                 this.apellidos = apellidos;
@@ -24,7 +24,7 @@ public class Paciente {
                 this.dni = dni;
         }
 
-        public Paciente(long numPaciente, String nombre, String apellidos, Date fecha, String telefono, String dni) {
+        public Paciente(long numPaciente, String nombre, String apellidos, String fecha, String telefono, String dni) {
                 this.numPaciente = numPaciente;
                 this.nombre = nombre;
                 this.apellidos = apellidos;
@@ -69,11 +69,11 @@ public class Paciente {
                 this.resultadoAnterior = resultadoAnterior;
         }
 
-        public Date getFecha() {
+        public String getFecha() {
                 return fecha;
         }
 
-        public void setFecha(Date fecha) {
+        public void setFecha(String fecha) {
                 this.fecha = fecha;
         }
 

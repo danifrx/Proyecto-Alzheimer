@@ -76,6 +76,10 @@ public class VentanaFormulario extends AppCompatActivity {
 
         //Cierro conexión con BBDD.
         db.close();
+
+        //Mando al usuario a la activity de VentanaPostFormulario
+        Intent intent = new Intent(VentanaFormulario.this, VentanaPostFormulario.class);
+        startActivity(intent);
     }
 
 }
