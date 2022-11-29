@@ -36,11 +36,6 @@ public class MainActivity extends AppCompatActivity {
         registrarse();
     }
 
-    //Alta de producto en base de datos
-    public void alta(View v){
-        //Instancio la conexión con la BBDD
-       // AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"")
-    }
 
     //Inicio de sesión de paciente en base de datos
     public void pulsarInicioSesion(){

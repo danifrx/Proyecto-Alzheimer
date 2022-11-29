@@ -19,21 +19,6 @@ public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextText_Fecha;
     private EditText editTextText_Telefono;
     private EditText editTextText_Dni;
-    private Button button_GuardarDatos;
-    private String nombre = "";
-    private String apellidos = "";
-    private String fecha = "";
-    private String telefono = "";
-    private String dni = "";
-    private String notaanterior;
-
-    //Pruebas
-    private String nombre1;
-    private String apellido1;
-    private String fecha1;
-    private String telefono1;
-    private String dni1;
-    private Button button_db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,10 +30,52 @@ public class VentanaFormulario extends AppCompatActivity {
         editTextText_Fecha = (EditText) findViewById(R.id.editTextText_Fecha);
         editTextText_Telefono = (EditText) findViewById(R.id.editTextText_Telefono);
         editTextText_Dni = (EditText) findViewById(R.id.editTextText_Dni);
-        button_GuardarDatos = (Button) findViewById(R.id.button_GuardarDatos);
+    }
 
+    //Alta de paciente en base de datos
+    public void alta(View v){
+        //Instancio la conexión con la BBDD
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
+        //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
+        SQLiteDatabase db = adminHelper.getWritableDatabase();
 
+        //Recogemos la información que el usuario rellenó en los campos del formulario
+        String nombre = editTextText_Nombre.getText().toString();
+        String apellidos = editTextText_Apellidos.getText().toString();
+        String fecha = editTextText_Fecha.getText().toString();
+        String tlf = editTextText_Telefono.getText().toString();
+        String dni = editTextText_Dni.getText().toString();
 
+        //Si no rellenó todos los valores del formulario error y no se genera alta de paciente.
+        if(nombre.length()==0 || apellidos.length()==0 || fecha.length()==0 || tlf.length()==0 || dni.length()==0){
+            Toast.makeText(this, "Debes rellenar todos los datos para el registro", Toast.LENGTH_SHORT).show();
+        } else {
+            //Todos los datos están cubiertos para dar de alta un paciente.
+
+            //Preparar la información anterior en un array de valores para incluirlos en la consulta de insert
+            ContentValues valores = new ContentValues();
+
+            valores.put("nombre",nombre);
+            valores.put("apellidos",apellidos);
+            valores.put("fecha",fecha);
+            valores.put("telefono",tlf);
+            valores.put("dni",dni);
+            //Incremento de la del num del paciente.
+            db.insert("pacientes",null,valores);
+
+            //Vacío campos del formulario.
+            editTextText_Nombre.setText("");
+            editTextText_Apellidos.setText("");
+            editTextText_Fecha.setText("");
+            editTextText_Telefono.setText("");
+            editTextText_Dni.setText("");
+
+            //Mensaje informativo
+            Toast.makeText(this, "Paciente dado de alta", Toast.LENGTH_SHORT).show();
+        }
+
+        //Cierro conexión con BBDD.
+        db.close();
     }
 
 }
