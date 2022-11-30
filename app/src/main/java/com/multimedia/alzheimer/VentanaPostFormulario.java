@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,6 +18,7 @@ public class VentanaPostFormulario extends AppCompatActivity {
     private TextView textView_nombre;
     private Button button_realizarTest;
     private Button button_cerrarSesion;
+    private String nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +29,30 @@ public class VentanaPostFormulario extends AppCompatActivity {
         button_realizarTest = (Button) findViewById(R.id.button_realizarTest);
         button_cerrarSesion = (Button) findViewById(R.id.button_cerrarSesion);
 
-       /* Intent i = getIntent();
-        String nombre = i.getStringExtra("nombre");
-        textView_nombre.setText(nombre);
-        */
+        recogida_datos();
+        realizarTest();
+        cerrarSesion();
     }
 
-    /*
+    public void realizarTest() {
+        button_realizarTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    public void cerrarSesion() {
+        button_cerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
     public void recogida_datos(){
         //Instancio de la conexión con la Base de datos
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "pacientes", null, 1);
@@ -52,7 +71,7 @@ public class VentanaPostFormulario extends AppCompatActivity {
         ArrayList<Paciente> pacientes = new ArrayList<>();
         while(cursor.moveToNext()){
             long numpaciente = cursor.getLong(cursor.getColumnIndex("numPaciente")+1);
-            String nombre = cursor.getString(cursor.getColumnIndex("nombre")+1);
+            nombre = cursor.getString(cursor.getColumnIndex("nombre")+1);
             String apellidos = cursor.getString(cursor.getColumnIndex("apellidos")+1);
             String fecha = cursor.getString(cursor.getColumnIndex("fecha")+1);
             String tlf = cursor.getString(cursor.getColumnIndex("telefono")+1);
@@ -63,6 +82,6 @@ public class VentanaPostFormulario extends AppCompatActivity {
         }
         cursor.close();
         db.close();
-        //TODO Aquí recollín todos os pacientes no arraylist pacientes
-    }*/
+        textView_nombre.setText(nombre);
+    }
 }
