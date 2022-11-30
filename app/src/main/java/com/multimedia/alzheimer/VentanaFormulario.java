@@ -96,7 +96,7 @@ public class VentanaFormulario extends AppCompatActivity {
 
     public void cambio (View v) {
         //Mando al usuario a la activity de VentanaPostFormulario
-        Intent i = new Intent(v.getContext(),VentanaPostFormulario.class);
+        Intent i = new Intent(v.getContext(),VentanaPostFormulario2.class);
         startActivity(i);
     }
 
