@@ -27,9 +27,10 @@ public class VentanaPostFormulario extends AppCompatActivity {
         button_realizarTest = (Button) findViewById(R.id.button_realizarTest);
         button_cerrarSesion = (Button) findViewById(R.id.button_cerrarSesion);
 
-        Intent i = getIntent();
+       /* Intent i = getIntent();
         String nombre = i.getStringExtra("nombre");
         textView_nombre.setText(nombre);
+        */
     }
 
     /*
@@ -44,7 +45,7 @@ public class VentanaPostFormulario extends AppCompatActivity {
         String[] columnas = {"numPaciente","nombre","apellidos","fecha","telefono","dni"};
 
         //El resultado de la consulta de select se guarda en el Cursor
-        Cursor cursor = db.query("pacientes",columnas,null,null,null,null,null);
+        Cursor cursor = db.query("Paciente",columnas,null,null,null,null,null);
 
         //Recorrer el array de resultados (cursor) para mostrar al usario la informacion
         //obtenida dentro de los campos del formulario.
