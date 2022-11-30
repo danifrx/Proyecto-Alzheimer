@@ -19,6 +19,7 @@ public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextText_Fecha;
     private EditText editTextText_Telefono;
     private EditText editTextText_Dni;
+    private String nombre1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,7 @@ public class VentanaFormulario extends AppCompatActivity {
             valores.put("telefono",tlf);
             valores.put("dni",dni);
             //Incremento de la del num del paciente.
-            db.insert("pacientes",null,valores);
+            db.insert("Paciente",null,valores);
 
             //Vacío campos del formulario.
             editTextText_Nombre.setText("");
@@ -69,18 +70,19 @@ public class VentanaFormulario extends AppCompatActivity {
             editTextText_Fecha.setText("");
             editTextText_Telefono.setText("");
             editTextText_Dni.setText("");
-            //.
 
             //Mensaje informativo
             Toast.makeText(this, "Paciente dado de alta", Toast.LENGTH_SHORT).show();
+
         }
+
+
 
         //Cierro conexión con BBDD.
         db.close();
-
         //Mando al usuario a la activity de VentanaPostFormulario
-        Intent intent = new Intent(VentanaFormulario.this, VentanaPostFormulario.class);
-        startActivity(intent);
+        /*Intent intent = new Intent(VentanaFormulario.this, VentanaPostFormulario.class);
+        startActivity(intent);*/
     }
 
 }
