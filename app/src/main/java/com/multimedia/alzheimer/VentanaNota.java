@@ -36,7 +36,7 @@ public class VentanaNota extends AppCompatActivity {
 
         cerrarSesion();
     }
-
+//
     public void cerrarSesion() {
         button_cerrar.setOnClickListener(new View.OnClickListener() {
             @Override
