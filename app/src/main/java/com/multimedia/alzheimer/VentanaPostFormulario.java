@@ -2,6 +2,7 @@ package com.multimedia.alzheimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -26,6 +27,13 @@ public class VentanaPostFormulario extends AppCompatActivity {
         button_realizarTest = (Button) findViewById(R.id.button_realizarTest);
         button_cerrarSesion = (Button) findViewById(R.id.button_cerrarSesion);
 
+        Intent i = getIntent();
+        String nombre = i.getStringExtra("nombre");
+        textView_nombre.setText(nombre);
+    }
+
+    /*
+    public void recogida_datos(){
         //Instancio de la conexión con la Base de datos
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "pacientes", null, 1);
 
@@ -55,5 +63,5 @@ public class VentanaPostFormulario extends AppCompatActivity {
         cursor.close();
         db.close();
         //TODO Aquí recollín todos os pacientes no arraylist pacientes
-    }
+    }*/
 }

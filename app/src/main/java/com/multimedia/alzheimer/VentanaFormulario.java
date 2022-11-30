@@ -19,6 +19,7 @@ public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextText_Fecha;
     private EditText editTextText_Telefono;
     private EditText editTextText_Dni;
+    private Button button_GuardarDatos;
     private String nombre1;
 
     @Override
@@ -31,7 +32,34 @@ public class VentanaFormulario extends AppCompatActivity {
         editTextText_Fecha = (EditText) findViewById(R.id.editTextText_Fecha);
         editTextText_Telefono = (EditText) findViewById(R.id.editTextText_Telefono);
         editTextText_Dni = (EditText) findViewById(R.id.editTextText_Dni);
+        button_GuardarDatos = (Button) findViewById(R.id.button_GuardarDatos);
+
+        pulsar_boton_guardar();
     }
+
+    public void pulsar_boton_guardar(){
+        button_GuardarDatos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alta(v);
+                if(editTextText_Nombre.getText().toString().equalsIgnoreCase("")||editTextText_Apellidos.getText().toString().equalsIgnoreCase("")||editTextText_Dni.getText().toString().equalsIgnoreCase("")||editTextText_Fecha.getText().toString().equalsIgnoreCase("")||editTextText_Telefono.getText().toString().equalsIgnoreCase("")){
+
+                    //Vacío campos del formulario.
+                    editTextText_Nombre.setText("");
+                    editTextText_Apellidos.setText("");
+                    editTextText_Fecha.setText("");
+                    editTextText_Telefono.setText("");
+                    editTextText_Dni.setText("");
+                } else {
+                    Intent i = new Intent(v.getContext(),VentanaPostFormulario.class);
+                    i.putExtra("nombre", editTextText_Nombre.getText().toString());
+                    startActivity(i);
+                }
+
+            }
+        });
+    }
+
 
     //Alta de paciente en base de datos
     public void alta(View v){
@@ -80,9 +108,7 @@ public class VentanaFormulario extends AppCompatActivity {
 
         //Cierro conexión con BBDD.
         db.close();
-        //Mando al usuario a la activity de VentanaPostFormulario
-        /*Intent intent = new Intent(VentanaFormulario.this, VentanaPostFormulario.class);
-        startActivity(intent);*/
+
     }
 
 }
