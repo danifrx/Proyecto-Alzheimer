@@ -69,6 +69,7 @@ public class VentanaFormulario extends AppCompatActivity {
             editTextText_Fecha.setText("");
             editTextText_Telefono.setText("");
             editTextText_Dni.setText("");
+            //.
 
             //Mensaje informativo
             Toast.makeText(this, "Paciente dado de alta", Toast.LENGTH_SHORT).show();
