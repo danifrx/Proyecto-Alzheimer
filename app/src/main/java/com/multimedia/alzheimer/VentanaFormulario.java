@@ -36,7 +36,7 @@ public class VentanaFormulario extends AppCompatActivity {
 
         alta();
     }
-
+    //
     //Alta de paciente en base de datos
     public void alta(){
         button_GuardarDatos.setOnClickListener(new View.OnClickListener() {
