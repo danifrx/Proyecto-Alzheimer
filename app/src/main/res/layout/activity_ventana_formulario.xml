@@ -85,7 +85,7 @@
 
             <EditText
                 android:id="@+id/editTextDate"
-                android:layout_width="wrap_content"
+                android:layout_width="173dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
@@ -131,7 +131,7 @@
 
             <EditText
                 android:id="@+id/editTextText_Dni"
-                android:layout_width="wrap_content"
+                android:layout_width="154dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
