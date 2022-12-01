@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -32,5 +33,17 @@ public class VentanaNota extends AppCompatActivity {
         if (textView_nota.getText().toString().equalsIgnoreCase("")){
             textView_nota.setText("Text no realizado");
         }
+
+        cerrarSesion();
+    }
+
+    public void cerrarSesion() {
+        button_cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 }

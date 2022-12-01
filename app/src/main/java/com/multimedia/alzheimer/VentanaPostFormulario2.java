@@ -2,30 +2,62 @@ package com.multimedia.alzheimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class VentanaPostFormulario extends AppCompatActivity {
+public class VentanaPostFormulario2 extends AppCompatActivity {
 
     private TextView textView_nombre;
     private Button button_realizarTest;
     private Button button_cerrarSesion;
+    private String nombre1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ventana_post_formulario);
+        setContentView(R.layout.activity_ventana_post_formulario2);
 
         textView_nombre = (TextView) findViewById(R.id.textView_nombre);
         button_realizarTest = (Button) findViewById(R.id.button_realizarTest);
         button_cerrarSesion = (Button) findViewById(R.id.button_cerrarSesion);
 
+        Intent i = getIntent();
+        String nombre = i.getStringExtra("Nombre");
+        textView_nombre.setText(nombre);
+
+        realizarTest();
+        cerrarSesion();
+       // recogida_datos();
+    }
+
+    public void realizarTest() {
+        button_realizarTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),VentanaTest.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    public void cerrarSesion() {
+        button_cerrarSesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    public void recogida_datos(){
         //Instancio de la conexión con la Base de datos
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "pacientes", null, 1);
 
@@ -36,7 +68,7 @@ public class VentanaPostFormulario extends AppCompatActivity {
         String[] columnas = {"numPaciente","nombre","apellidos","fecha","telefono","dni"};
 
         //El resultado de la consulta de select se guarda en el Cursor
-        Cursor cursor = db.query("pacientes",columnas,null,null,null,null,null);
+        Cursor cursor = db.query("Paciente",columnas,null,null,null,null,null);
 
         //Recorrer el array de resultados (cursor) para mostrar al usario la informacion
         //obtenida dentro de los campos del formulario.
@@ -54,6 +86,11 @@ public class VentanaPostFormulario extends AppCompatActivity {
         }
         cursor.close();
         db.close();
-        //TODO Aquí recollín todos os pacientes no arraylist pacientes
+
+        for (int i = 0; i < pacientes.toArray().length; i++) {
+            nombre1 = pacientes.get(i).getNombre();
+        }
+
+        textView_nombre.setText(nombre1);
     }
 }

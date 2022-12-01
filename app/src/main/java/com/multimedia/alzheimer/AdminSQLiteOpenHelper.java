@@ -52,6 +52,7 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
         // to simply to discard the data and start over
         //db.execSQL("DROP TABLE IF EXISTS Paciente");
         //onCreate(db);
+
     }
 
     @Override
