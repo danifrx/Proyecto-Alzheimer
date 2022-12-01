@@ -16,8 +16,8 @@ import android.widget.Toast;
 public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextText_Nombre;
     private EditText editTextText_Apellidos;
-    private EditText editTextText_Fecha;
-    private EditText editTextText_Telefono;
+    private EditText editTextDate;
+    private EditText editTextPhone;
     private EditText editTextText_Dni;
     private Button button_GuardarDatos;
     private String nombre;
@@ -29,8 +29,8 @@ public class VentanaFormulario extends AppCompatActivity {
 
         editTextText_Nombre = (EditText) findViewById(R.id.editTextText_Nombre);
         editTextText_Apellidos = (EditText) findViewById(R.id.editTextText_Apellidos);
-        editTextText_Fecha = (EditText) findViewById(R.id.editTextText_Fecha);
-        editTextText_Telefono = (EditText) findViewById(R.id.editTextText_Telefono);
+        editTextDate = (EditText) findViewById(R.id.editTextDate);
+        editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextText_Dni = (EditText) findViewById(R.id.editTextText_Dni);
         button_GuardarDatos = (Button) findViewById(R.id.button_GuardarDatos);
 
@@ -50,8 +50,8 @@ public class VentanaFormulario extends AppCompatActivity {
                 //Recogemos la información que el usuario rellenó en los campos del formulario
                 nombre = editTextText_Nombre.getText().toString();
                 String apellidos = editTextText_Apellidos.getText().toString();
-                String fecha = editTextText_Fecha.getText().toString();
-                String tlf = editTextText_Telefono.getText().toString();
+                String fecha = editTextDate.getText().toString();
+                String tlf = editTextPhone.getText().toString();
                 String dni = editTextText_Dni.getText().toString();
 
                 //Si no rellenó todos los valores del formulario error y no se genera alta de paciente.
@@ -74,8 +74,8 @@ public class VentanaFormulario extends AppCompatActivity {
                     //Vacío campos del formulario.
                     editTextText_Nombre.setText("");
                     editTextText_Apellidos.setText("");
-                    editTextText_Fecha.setText("");
-                    editTextText_Telefono.setText("");
+                    editTextDate.setText("");
+                    editTextPhone.setText("");
                     editTextText_Dni.setText("");
 
                     //Mensaje informativo
