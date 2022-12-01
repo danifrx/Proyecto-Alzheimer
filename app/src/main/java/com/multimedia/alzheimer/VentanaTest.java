@@ -2,6 +2,7 @@ package com.multimedia.alzheimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -84,7 +85,7 @@ public class VentanaTest extends AppCompatActivity {
 
         ct = 0;
 
-       if (datoSpinner1.equals("Estrella")) {
+        if (datoSpinner1.equals("Estrella")) {
            ct++;
         }
         if (datoSpinner2.equals("6.55")) {
@@ -112,6 +113,8 @@ public class VentanaTest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 puntuacion();
+                Intent i = new Intent(v.getContext(),VentanaNota.class);
+                startActivity(i);
             }
         });
     }

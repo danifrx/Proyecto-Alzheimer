@@ -83,14 +83,10 @@ public class VentanaFormulario extends AppCompatActivity {
                     cambio(v);
                 }
 
-
-
                 //Cierro conexión con BBDD.
                 db.close();
             }
         });
-
-
 
     }
 

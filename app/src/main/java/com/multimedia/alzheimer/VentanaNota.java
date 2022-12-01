@@ -35,6 +35,17 @@ public class VentanaNota extends AppCompatActivity {
         }
 
         cerrarSesion();
+        repetirTest();
+    }
+
+    public void repetirTest() {
+        button_repetir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),VentanaTest.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void cerrarSesion() {
