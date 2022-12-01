@@ -50,7 +50,7 @@ public class VentanaTest extends AppCompatActivity {
 
         ArrayAdapter<String> adaptador6 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones6);
         spinner6.setAdapter(adaptador6);
-        //
+
 
 
     }
