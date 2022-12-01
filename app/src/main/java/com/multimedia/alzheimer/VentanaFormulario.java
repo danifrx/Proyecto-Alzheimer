@@ -95,6 +95,9 @@ public class VentanaFormulario extends AppCompatActivity {
         Intent i = new Intent(v.getContext(),VentanaPostFormulario2.class);
         i.putExtra("Nombre", nombre);
         startActivity(i);
+        Intent j = new Intent(v.getContext(),VentanaTest.class);
+        j.putExtra("Dni", dni);
+        startActivity(j);
     }
 
 }

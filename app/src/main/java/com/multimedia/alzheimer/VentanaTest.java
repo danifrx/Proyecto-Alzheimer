@@ -112,7 +112,6 @@ public class VentanaTest extends AppCompatActivity {
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
         SQLiteDatabase db = adminHelper.getWritableDatabase();
 
-        //Hai que mirar como facelo update este para que se lle inserte o resultado no paciente que acaba de usar a aplicacion
         String strSQL = "UPDATE Paciente SET resultadoAnterior = " + ct + " WHERE dni = " + dni;
 
         db.execSQL(strSQL);
