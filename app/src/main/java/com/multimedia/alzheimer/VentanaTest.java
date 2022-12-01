@@ -3,11 +3,20 @@ package com.multimedia.alzheimer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Locale;
 
 public class VentanaTest extends AppCompatActivity {
 
+    private Button button_enviarRespuestas;
     private Spinner spinner1;
     private Spinner spinner2;
     private Spinner spinner3;
@@ -21,6 +30,15 @@ public class VentanaTest extends AppCompatActivity {
     private String[] opciones5 = {"", "Son frutas", "Son verduras", "Son productos cárnicos", "Son vehículos"};
     private String[] opciones6 = {"", "Hacia arriba", "Hacia la derecha", "Hacia abajo", "Hacia la izquierda"};
 
+    String datoSpinner1;
+    String datoSpinner2;
+    String datoSpinner3;
+    String datoSpinner4;
+    String datoSpinner5;
+    String datoSpinner6;
+
+    int ct = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +50,7 @@ public class VentanaTest extends AppCompatActivity {
         spinner4 = (Spinner) findViewById(R.id.spinner4);
         spinner5 = (Spinner) findViewById(R.id.spinner5);
         spinner6 = (Spinner) findViewById(R.id.spinner6);
+        button_enviarRespuestas = (Button) findViewById(R.id.button_enviarRespuestas);
 
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones1);
         spinner1.setAdapter(adaptador1);
@@ -51,7 +70,49 @@ public class VentanaTest extends AppCompatActivity {
         ArrayAdapter<String> adaptador6 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones6);
         spinner6.setAdapter(adaptador6);
 
+        pulsar();
+    }
 
 
+    public void puntuacion() {
+        datoSpinner1 = spinner1.getSelectedItem().toString();
+        datoSpinner2 = spinner2.getSelectedItem().toString();
+        datoSpinner3 = spinner3.getSelectedItem().toString();
+        datoSpinner4 = spinner4.getSelectedItem().toString();
+        datoSpinner5 = spinner5.getSelectedItem().toString();
+        datoSpinner6 = spinner6.getSelectedItem().toString();
+
+        ct = 0;
+
+       if (datoSpinner1.equals("Estrella")) {
+           ct++;
+        }
+        if (datoSpinner2.equals("6.55")) {
+            ct++;
+        }
+        if (datoSpinner3.equals("Lunes")) {
+            ct++;
+        }
+        if (datoSpinner4.equals("4")) {
+            ct++;
+        }
+        if (datoSpinner5.equals("Son frutas")) {
+            ct++;
+        }
+        if (datoSpinner6.equals("Hacia la derecha")) {
+            ct++;
+        }
+
+    }
+
+
+
+    public void pulsar() {
+        button_enviarRespuestas.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                puntuacion();
+            }
+        });
     }
 }
