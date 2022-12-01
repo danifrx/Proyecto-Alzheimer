@@ -17,7 +17,7 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
     private TextView textView_nombre;
     private Button button_realizarTest;
     private Button button_cerrarSesion;
-    private String nombre;
+    private String nombre1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,17 +28,21 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
         button_realizarTest = (Button) findViewById(R.id.button_realizarTest);
         button_cerrarSesion = (Button) findViewById(R.id.button_cerrarSesion);
 
+        Intent i = getIntent();
+        String nombre = i.getStringExtra("Nombre");
+        textView_nombre.setText(nombre);
 
         realizarTest();
         cerrarSesion();
-        recogida_datos();
+       // recogida_datos();
     }
 
     public void realizarTest() {
         button_realizarTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(v.getContext(),VentanaTest.class);
+                startActivity(i);
             }
         });
     }
@@ -71,7 +75,7 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
         ArrayList<Paciente> pacientes = new ArrayList<>();
         while(cursor.moveToNext()){
             long numpaciente = cursor.getLong(cursor.getColumnIndex("numPaciente")+1);
-            nombre = cursor.getString(cursor.getColumnIndex("nombre")+1);
+            String nombre = cursor.getString(cursor.getColumnIndex("nombre")+1);
             String apellidos = cursor.getString(cursor.getColumnIndex("apellidos")+1);
             String fecha = cursor.getString(cursor.getColumnIndex("fecha")+1);
             String tlf = cursor.getString(cursor.getColumnIndex("telefono")+1);
@@ -82,6 +86,11 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
         }
         cursor.close();
         db.close();
-        textView_nombre.setText(nombre);
+
+        for (int i = 0; i < pacientes.toArray().length; i++) {
+            nombre1 = pacientes.get(i).getNombre();
+        }
+
+        textView_nombre.setText(nombre1);
     }
 }

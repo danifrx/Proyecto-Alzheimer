@@ -20,7 +20,7 @@ public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextText_Telefono;
     private EditText editTextText_Dni;
     private Button button_GuardarDatos;
-
+    private String nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +48,7 @@ public class VentanaFormulario extends AppCompatActivity {
                 SQLiteDatabase db = adminHelper.getWritableDatabase();
 
                 //Recogemos la información que el usuario rellenó en los campos del formulario
-                String nombre = editTextText_Nombre.getText().toString();
+                nombre = editTextText_Nombre.getText().toString();
                 String apellidos = editTextText_Apellidos.getText().toString();
                 String fecha = editTextText_Fecha.getText().toString();
                 String tlf = editTextText_Telefono.getText().toString();
@@ -97,6 +97,7 @@ public class VentanaFormulario extends AppCompatActivity {
     public void cambio (View v) {
         //Mando al usuario a la activity de VentanaPostFormulario
         Intent i = new Intent(v.getContext(),VentanaPostFormulario2.class);
+        i.putExtra("Nombre", nombre);
         startActivity(i);
     }
 
