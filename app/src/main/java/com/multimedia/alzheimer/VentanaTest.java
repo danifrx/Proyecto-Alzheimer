@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,7 @@ public class VentanaTest extends AppCompatActivity {
     String datoSpinner6;
 
     int ct = 0;
+    String dni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -106,15 +108,34 @@ public class VentanaTest extends AppCompatActivity {
             ct++;
         }
 
+        /*
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
+        SQLiteDatabase db = adminHelper.getReadableDatabase();
+        Cursor c = db.rawQuery("SELECT dni FROM Pacientes", null);
+
+        if (c != null) {
+            c.moveToFirst();
+            do {
+                //Asignamos el valor en nuestras variables para usarlos en lo que necesitemos
+                dni = c.getString(c.getColumnIndex("dni") + 1);
+            } while (c.moveToNext());
+        }
+
+        //Cerramos el cursor y la conexion con la base de datos
+        c.close();
+        db.close();
+        */
+
         Intent i = getIntent();
-        String dni = i.getStringExtra("Dni");
+        dni = i.getStringExtra("DocumentoIdentidad");
 
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
-        SQLiteDatabase db = adminHelper.getWritableDatabase();
+        SQLiteDatabase db1 = adminHelper.getWritableDatabase();
 
         String strSQL = "UPDATE Paciente SET resultadoAnterior = " + ct + " WHERE dni = " + dni;
 
-        db.execSQL(strSQL);
+        db1.execSQL(strSQL);
+
 
 
     }
@@ -125,6 +146,8 @@ public class VentanaTest extends AppCompatActivity {
             public void onClick(View v) {
                 puntuacion();
                 Intent i = new Intent(v.getContext(),VentanaNota.class);
+                String nota = String.valueOf(ct);
+                i.putExtra("Nota", nota);
                 startActivity(i);
             }
         });

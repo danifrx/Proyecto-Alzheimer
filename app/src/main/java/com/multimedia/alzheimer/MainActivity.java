@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                     //Hacemos la búsqueda del paciente.
 
                     //Array que incluye los campos/columnas de la tabla Paciente, sobre la que hacer la consulta.
-                    String[] columnas = {"numPaciente","nombre","apellidos","resultado","fechaNacimiento","tlf","dni"};
+                    String[] columnas = {"numPaciente","nombre","apellidos","resultadoAnterior","fecha","tlf","dni"};
 
                     //Filtros de la consulta para aplicar en la cláusula WHERE "nombre" = nombre and "dni" = dni.
                     String seleccion = "dni" + " = ?";

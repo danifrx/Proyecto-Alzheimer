@@ -94,10 +94,8 @@ public class VentanaFormulario extends AppCompatActivity {
         //Mando al usuario a la activity de VentanaPostFormulario
         Intent i = new Intent(v.getContext(),VentanaPostFormulario2.class);
         i.putExtra("Nombre", nombre);
+        i.putExtra("Dni", dni);
         startActivity(i);
-        Intent j = new Intent(v.getContext(),VentanaTest.class);
-        j.putExtra("Dni", dni);
-        startActivity(j);
     }
 
 }
