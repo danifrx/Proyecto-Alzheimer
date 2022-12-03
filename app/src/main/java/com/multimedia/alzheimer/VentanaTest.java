@@ -124,7 +124,7 @@ public class VentanaTest extends AppCompatActivity {
         //Cerramos el cursor y la conexion con la base de datos
         c.close();
         db.close();
-        */
+
 
         Intent i = getIntent();
         dni = i.getStringExtra("DocumentoIdentidad");
@@ -135,7 +135,7 @@ public class VentanaTest extends AppCompatActivity {
         String strSQL = "UPDATE Paciente SET resultadoAnterior = " + ct + " WHERE dni = " + dni;
 
         db1.execSQL(strSQL);
-
+        */
 
 
     }
