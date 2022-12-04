@@ -83,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
                     i.putExtra("nota",notaanterior);
                     startActivity(i);
                      */
-                    Cursor c = db.rawQuery("SELECT nombre, dni, resultadoAnterior FROM Paciente where dni = " + dni, null);
+                    Cursor c = db.rawQuery("SELECT nombre, resultadoAnterior, dni FROM Paciente where dni = " + dni, null);
                     if (c.moveToFirst()) {
                      // do {
                             nombre1 = c.getString(0);
-                            dni1 = c.getString(1);
-                            nota = c.getString(2);
+                            nota = c.getString(1);
+                            dni1 = c.getString(2);
                             db.close();
                       // } while (c.moveToNext());
                     } else {
