@@ -108,7 +108,7 @@ public class VentanaTest extends AppCompatActivity {
             ct++;
         }
 
-        /*
+ /*
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
         SQLiteDatabase db = adminHelper.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT dni FROM Pacientes", null);
@@ -125,17 +125,17 @@ public class VentanaTest extends AppCompatActivity {
         c.close();
         db.close();
 
-
+  */
         Intent i = getIntent();
         dni = i.getStringExtra("DocumentoIdentidad");
 
-        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
-        SQLiteDatabase db1 = adminHelper.getWritableDatabase();
+        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
+        SQLiteDatabase db1 = adminHelper1.getWritableDatabase();
 
         String strSQL = "UPDATE Paciente SET resultadoAnterior = " + ct + " WHERE dni = " + dni;
 
         db1.execSQL(strSQL);
-        */
+
 
 
     }

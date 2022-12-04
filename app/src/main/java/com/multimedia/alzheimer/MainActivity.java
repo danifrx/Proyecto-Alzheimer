@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Button button_iniciarsesion;
     private Button button_registrar;
     private String notaanterior;
+    String nombre, dni, nombre1, dni1, nota;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,19 +47,20 @@ public class MainActivity extends AppCompatActivity {
                 //Instancio la conexión con la base de datos
                 AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(v.getContext(),"registro",null,1);
                 //Abro la conexión de base de datos, con permisos de lectura.
-               SQLiteDatabase db = adminHelper.getReadableDatabase();
+                SQLiteDatabase db = adminHelper.getReadableDatabase();
 
                 //Leo el nombre y el DNI introducido por el usuario
-                String nombre = editText_nombre.getText().toString();
-                String dni = editText_dni.getText().toString();
+                nombre = editText_nombre.getText().toString();
+                dni = editText_dni.getText().toString();
 
                 //Si el campo del nombre o del DNI está vacío no puedo realizar la búsqueda.
-                if(nombre.length()==0 || dni.length()==0){
+                if(nombre.isEmpty() || dni.isEmpty()){
                     Toast.makeText(MainActivity.this, "Debe introducir todos los campos con anterioridad", Toast.LENGTH_SHORT).show();
                     //Vacío de nuevo los campos.
                     editText_nombre.setText("");
                     editText_dni.setText("");
                 } else {
+                    /*
                     //Hacemos la búsqueda del paciente.
 
                     //Array que incluye los campos/columnas de la tabla Paciente, sobre la que hacer la consulta.
@@ -80,8 +82,31 @@ public class MainActivity extends AppCompatActivity {
                     Intent i = new Intent(v.getContext(),VentanaNota.class);
                     i.putExtra("nota",notaanterior);
                     startActivity(i);
+                     */
+                    Cursor c = db.rawQuery("SELECT nombre, dni, resultadoAnterior FROM Paciente where dni = " + dni, null);
+                    if (c.moveToFirst()) {
+                     // do {
+                            nombre1 = c.getString(0);
+                            dni1 = c.getString(1);
+                            nota = c.getString(2);
+                            db.close();
+                      // } while (c.moveToNext());
+                    } else {
+                        Toast.makeText(MainActivity.this, "No existe el usuario", Toast.LENGTH_SHORT).show();
+                        db.close();
+                    }
+
+                    if (nombre.equals(nombre1) && (dni.equals(dni1)) && (!nota.isEmpty())) {
+                        Intent i = new Intent(v.getContext(),VentanaNota.class);
+                        i.putExtra("Nota", nota);
+                        startActivity(i);
+                    } else {
+                        Intent b = new Intent(v.getContext(),VentanaPostFormulario2.class);
+                        b.putExtra("Nombre", nombre);
+                        startActivity(b);
+                    }
                 }
-                db.close();
+               // db.close();
 
             }
         });
