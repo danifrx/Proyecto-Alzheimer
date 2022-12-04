@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
                         db.close();
                     }
 
-                    if (nombre.equals(nombre1) && (dni.equals(dni1)) && (!nota.isEmpty())) {
+                  if (nombre.equals(nombre1) && (dni.equals(dni1)) && (!nota.isEmpty())) {
                         Intent i = new Intent(v.getContext(),VentanaNota.class);
                         i.putExtra("Nota", nota);
                         startActivity(i);

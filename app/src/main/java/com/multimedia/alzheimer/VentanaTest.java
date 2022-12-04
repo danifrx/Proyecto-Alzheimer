@@ -108,24 +108,6 @@ public class VentanaTest extends AppCompatActivity {
             ct++;
         }
 
- /*
-        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
-        SQLiteDatabase db = adminHelper.getReadableDatabase();
-        Cursor c = db.rawQuery("SELECT dni FROM Pacientes", null);
-
-        if (c != null) {
-            c.moveToFirst();
-            do {
-                //Asignamos el valor en nuestras variables para usarlos en lo que necesitemos
-                dni = c.getString(c.getColumnIndex("dni") + 1);
-            } while (c.moveToNext());
-        }
-
-        //Cerramos el cursor y la conexion con la base de datos
-        c.close();
-        db.close();
-
-  */
         Intent i = getIntent();
         dni = i.getStringExtra("DocumentoIdentidad");
 
