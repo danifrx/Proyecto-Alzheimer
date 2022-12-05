@@ -79,7 +79,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline39" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView_TlfBD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/guideline40"
@@ -88,7 +88,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline39" />
 
     <Button
-        android:id="@+id/button_realizarTest"
+        android:id="@+id/button_realizarTest1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/realizar_test"
@@ -99,7 +99,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline34" />
 
     <Button
-        android:id="@+id/button_cerrarSesion"
+        android:id="@+id/button_cerrarSesion1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="@string/cerrar_sesi_n"

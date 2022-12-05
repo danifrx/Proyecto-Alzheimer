@@ -40,7 +40,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline32" />
 
     <Button
-        android:id="@+id/button_realizarTest"
+        android:id="@+id/button_realizarTest1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="Realizar test"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline34" />
 
     <Button
-        android:id="@+id/button_cerrarSesion"
+        android:id="@+id/button_cerrarSesion1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="Cerrar sesión"

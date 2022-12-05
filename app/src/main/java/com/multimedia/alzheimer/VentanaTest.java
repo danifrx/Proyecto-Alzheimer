@@ -40,6 +40,7 @@ public class VentanaTest extends AppCompatActivity {
     String datoSpinner4;
     String datoSpinner5;
     String datoSpinner6;
+    String resultado;
 
     int ct = 0;
     String dni;
@@ -48,6 +49,9 @@ public class VentanaTest extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_test);
+
+        Intent i = getIntent();
+        dni = i.getStringExtra("DocumentoIdentidad");
 
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
@@ -75,6 +79,7 @@ public class VentanaTest extends AppCompatActivity {
         ArrayAdapter<String> adaptador6 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones6);
         spinner6.setAdapter(adaptador6);
 
+        puntuacion();
         pulsar();
     }
 
@@ -108,17 +113,13 @@ public class VentanaTest extends AppCompatActivity {
             ct++;
         }
 
-        Intent i = getIntent();
-        dni = i.getStringExtra("DocumentoIdentidad");
-
-        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
-        SQLiteDatabase db1 = adminHelper1.getWritableDatabase();
-
-        String strSQL = "UPDATE Paciente SET resultadoAnterior = " + ct + " WHERE dni = " + dni;
-
-        db1.execSQL(strSQL);
-
-
+        if (ct < 2) {
+            resultado = "Alzheimer";
+        } else if (ct >= 2 && ct <= 4) {
+           resultado = "Peligro de alzheimer";
+        } else if (ct > 4 && ct <= 6) {
+           resultado = "Buena salud mental";
+        }
 
     }
 
@@ -126,10 +127,13 @@ public class VentanaTest extends AppCompatActivity {
         button_enviarRespuestas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                puntuacion();
-                Intent i = new Intent(v.getContext(),VentanaNota.class);
+
+                /*Intent i = new Intent(v.getContext(),VentanaNota.class);
                 String nota = String.valueOf(ct);
                 i.putExtra("Nota", nota);
+                startActivity(i);*/
+                Intent i = new Intent(v.getContext(),VentanaNota.class);
+                i.putExtra("Nota", resultado);
                 startActivity(i);
             }
         });
