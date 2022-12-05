@@ -4,19 +4,15 @@ import java.util.Date;
 
 public class Test {
     private String dni;
-    private int resultado;
+    private String resultado;
 
     public Test() {
 
     }
 
-    public Test(String dni, int resultado) {
+    public Test(String dni, String resultado) {
         this.dni = dni;
         this.resultado = resultado;
-    }
-
-    public Test(String dni) {
-        this.dni = dni;
     }
 
     public String getDni() {
@@ -27,11 +23,11 @@ public class Test {
         this.dni = dni;
     }
 
-    public int getResultado() {
+    public String getResultado() {
         return resultado;
     }
 
-    public void setResultado(int resultado) {
+    public void setResultado(String resultado) {
         this.resultado = resultado;
     }
 }
