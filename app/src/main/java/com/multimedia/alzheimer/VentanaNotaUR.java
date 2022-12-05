@@ -51,7 +51,7 @@ public class VentanaNotaUR extends AppCompatActivity {
         } else if (notaanterior1 > 4 && notaanterior1 <= 6) {
             textView_nota.setText("Buena salud mental");
         }*/
-
+            //.
 
         cerrarSesion1();
         repetirTest1();
