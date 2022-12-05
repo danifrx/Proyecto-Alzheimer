@@ -5,7 +5,6 @@ import java.util.Date;
 public class Test {
     private int numText;
     private int numPaciente;
-    private Date fecha;
     private String r1;
     private String r2;
     private String r3;
@@ -17,10 +16,9 @@ public class Test {
 
     }
 
-    public Test(int numText, int numPaciente, Date fecha, String r1, String r2, String r3, String r4, String r5, String r6) {
+    public Test(int numText, int numPaciente, String r1, String r2, String r3, String r4, String r5, String r6) {
         this.numText = numText;
         this.numPaciente = numPaciente;
-        this.fecha = fecha;
         this.r1 = r1;
         this.r2 = r2;
         this.r3 = r3;
@@ -43,14 +41,6 @@ public class Test {
 
     public void setNumPaciente(int numPaciente) {
         this.numPaciente = numPaciente;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
     }
 
     public String getR1() {

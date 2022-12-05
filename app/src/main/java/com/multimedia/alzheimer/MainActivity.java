@@ -85,20 +85,20 @@ public class MainActivity extends AppCompatActivity {
                      */
                     Cursor c = db.rawQuery("SELECT nombre, resultadoAnterior, dni FROM Paciente where dni = " + dni, null);
                     if (c.moveToFirst()) {
-                     // do {
+                      do {
                             nombre1 = c.getString(0);
                             nota = c.getString(1);
                             dni1 = c.getString(2);
                             db.close();
-                      // } while (c.moveToNext());
-                    } else if ((nombre1 == null) && (dni1 == null))  {
+                      } while (c.moveToNext());
+                    } else {
                         Toast.makeText(MainActivity.this, "No existe el usuario", Toast.LENGTH_SHORT).show();
                         db.close();
                     }
 
                   if ((nombre1 != null) && (dni1 != null) && (nota != null)) {
-                        Intent i = new Intent(v.getContext(),VentanaNota.class);
-                        i.putExtra("Nota", nota);
+                        Intent i = new Intent(v.getContext(),VentanaNotaUR.class);
+                        i.putExtra("NotaUR", nota);
                         startActivity(i);
                     } else {
                         Intent b = new Intent(v.getContext(),VentanaPostFormulario2.class);

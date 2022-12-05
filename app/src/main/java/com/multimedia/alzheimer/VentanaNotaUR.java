@@ -27,31 +27,18 @@ public class VentanaNotaUR extends AppCompatActivity {
 
         textView_nota1.setText("");
 
-        Intent i = getIntent();
-        String nota1 = i.getStringExtra("Nota");
 
-        int nota2 = Integer.parseInt(nota1);
-        if (nota2 < 2) {
-            textView_nota1.setText("Alzheimer");
-        } else if (nota2 >= 2 && nota2 <= 4) {
-            textView_nota1.setText("Peligro de alzheimer");
-        } else if (nota2 > 4 && nota2 <= 6) {
-            textView_nota1.setText("Buena salud mental");
-        }
-
-
-        /*Intent b = getIntent();
-        String notaanterior = b.getStringExtra("nota");
+        Intent b = getIntent();
+        String notaanterior = b.getStringExtra("NotaUR");
 
         int notaanterior1 = Integer.parseInt(notaanterior);
         if (notaanterior1 < 2) {
-            textView_nota.setText("Alzheimer");
+            textView_nota1.setText("Alzheimer");
         } else if (notaanterior1 >= 2 && notaanterior1 <= 4) {
-            textView_nota.setText("Peligro de alzheimer");
+            textView_nota1.setText("Peligro de alzheimer");
         } else if (notaanterior1 > 4 && notaanterior1 <= 6) {
-            textView_nota.setText("Buena salud mental");
-        }*/
-            //.
+            textView_nota1.setText("Buena salud mental");
+        }
 
         cerrarSesion1();
         repetirTest1();

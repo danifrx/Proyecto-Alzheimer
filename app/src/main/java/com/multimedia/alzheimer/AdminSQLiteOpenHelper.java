@@ -31,7 +31,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                 "CREATE TABLE Test (" +
                         "numText INTEGER PRIMARY KEY AUTOINCREMENT, " +
                         "numPaciente INTEGER, " +
-                        "fecha DATE, " +
                         "r1 CHAR(20), " +
                         "r2 CHAR(20), " +
                         "r3 CHAR(20), " +

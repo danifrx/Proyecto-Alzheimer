@@ -40,19 +40,6 @@ public class VentanaNota extends AppCompatActivity {
         }
 
 
-        /*Intent b = getIntent();
-        String notaanterior = b.getStringExtra("nota");
-
-        int notaanterior1 = Integer.parseInt(notaanterior);
-        if (notaanterior1 < 2) {
-            textView_nota.setText("Alzheimer");
-        } else if (notaanterior1 >= 2 && notaanterior1 <= 4) {
-            textView_nota.setText("Peligro de alzheimer");
-        } else if (notaanterior1 > 4 && notaanterior1 <= 6) {
-            textView_nota.setText("Buena salud mental");
-        }*/
-
-
         cerrarSesion();
         repetirTest();
     }
