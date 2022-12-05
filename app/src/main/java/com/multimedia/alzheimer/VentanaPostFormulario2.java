@@ -60,7 +60,7 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
         });
     }
 
-    public void recogida_datos(){
+   /* public void recogida_datos(){
         //Instancio de la conexión con la Base de datos
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "pacientes", null, 1);
 
@@ -95,5 +95,5 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
         }
 
         textView_nombre.setText(nombre1);
-    }
+    }*/
 }

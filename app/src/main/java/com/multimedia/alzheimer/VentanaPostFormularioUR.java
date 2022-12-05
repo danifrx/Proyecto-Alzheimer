@@ -25,6 +25,15 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
         button_realizarTest1 = (Button) findViewById(R.id.button_realizarTest1);
         button_cerrarSesion1 = (Button) findViewById(R.id.button_cerrarSesion1);
 
+        Intent i = getIntent();
+        String nombre = i.getStringExtra("nombre");
+        String tlf = i.getStringExtra("tlf");
+        String dni = i.getStringExtra("dni");
+
+        textView_NombreBD.setText(nombre);
+        textView_DniBD.setText(dni);
+        textView_TlfBD.setText(tlf);
+
         realizarTest();
         cerrarSesion();
     }
