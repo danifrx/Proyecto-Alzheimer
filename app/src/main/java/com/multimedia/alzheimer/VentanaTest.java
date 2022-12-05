@@ -2,6 +2,10 @@ package com.multimedia.alzheimer;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -38,6 +42,7 @@ public class VentanaTest extends AppCompatActivity {
     String datoSpinner6;
 
     int ct = 0;
+    String dni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +89,7 @@ public class VentanaTest extends AppCompatActivity {
 
         ct = 0;
 
-       if (datoSpinner1.equals("Estrella")) {
+        if (datoSpinner1.equals("Estrella")) {
            ct++;
         }
         if (datoSpinner2.equals("6.55")) {
@@ -103,15 +108,29 @@ public class VentanaTest extends AppCompatActivity {
             ct++;
         }
 
+        Intent i = getIntent();
+        dni = i.getStringExtra("DocumentoIdentidad");
+
+        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
+        SQLiteDatabase db1 = adminHelper1.getWritableDatabase();
+
+        String strSQL = "UPDATE Paciente SET resultadoAnterior = " + ct + " WHERE dni = " + dni;
+
+        db1.execSQL(strSQL);
+
+
+
     }
-
-
 
     public void pulsar() {
         button_enviarRespuestas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 puntuacion();
+                Intent i = new Intent(v.getContext(),VentanaNota.class);
+                String nota = String.valueOf(ct);
+                i.putExtra("Nota", nota);
+                startActivity(i);
             }
         });
     }

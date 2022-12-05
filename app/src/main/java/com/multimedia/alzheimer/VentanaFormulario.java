@@ -20,7 +20,7 @@ public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextPhone;
     private EditText editTextText_Dni;
     private Button button_GuardarDatos;
-    private String nombre;
+    private String nombre, dni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class VentanaFormulario extends AppCompatActivity {
                 String apellidos = editTextText_Apellidos.getText().toString();
                 String fecha = editTextDate.getText().toString();
                 String tlf = editTextPhone.getText().toString();
-                String dni = editTextText_Dni.getText().toString();
+                dni = editTextText_Dni.getText().toString();
 
                 //Si no rellenó todos los valores del formulario error y no se genera alta de paciente.
                 if(nombre.length()==0 || apellidos.length()==0 || fecha.length()==0 || tlf.length()==0 || dni.length()==0){
@@ -83,14 +83,10 @@ public class VentanaFormulario extends AppCompatActivity {
                     cambio(v);
                 }
 
-
-
                 //Cierro conexión con BBDD.
                 db.close();
             }
         });
-
-
 
     }
 
@@ -98,6 +94,7 @@ public class VentanaFormulario extends AppCompatActivity {
         //Mando al usuario a la activity de VentanaPostFormulario
         Intent i = new Intent(v.getContext(),VentanaPostFormulario2.class);
         i.putExtra("Nombre", nombre);
+        i.putExtra("Dni", dni);
         startActivity(i);
     }
 

@@ -18,6 +18,7 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
     private Button button_realizarTest;
     private Button button_cerrarSesion;
     private String nombre1;
+    String dni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,7 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
 
         Intent i = getIntent();
         String nombre = i.getStringExtra("Nombre");
+        dni = i.getStringExtra("Dni");
         textView_nombre.setText(nombre);
 
         realizarTest();
@@ -42,6 +44,7 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),VentanaTest.class);
+                i.putExtra("DocumentoIdentidad", dni);
                 startActivity(i);
             }
         });

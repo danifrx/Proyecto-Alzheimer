@@ -112,7 +112,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline19" />
 
     <Button
-        android:id="@+id/button_repetir"
+        android:id="@+id/button_repetir1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="Repetir text"
@@ -123,7 +123,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
     <Button
-        android:id="@+id/button_cerrar"
+        android:id="@+id/button_cerrar1"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:text="Cerrar sesión"
@@ -137,7 +137,7 @@
         android:id="@+id/textView_frase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Su anterior puntuación fue:"
+        android:text="Su puntuación es:"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline16"
@@ -145,7 +145,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline13" />
 
     <TextView
-        android:id="@+id/textView_nota"
+        android:id="@+id/textView_nota1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="#43A047"
