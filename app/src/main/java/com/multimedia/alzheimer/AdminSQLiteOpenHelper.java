@@ -21,7 +21,6 @@ public class AdminSQLiteOpenHelper extends SQLiteOpenHelper {
                         "nombre CHAR(20), " +
                         "apellidos CHAR(50), " +
                         "resultadoAnterior TINYINT, " +
-                        "fecha DATE, " +
                         "telefono CHAR(9), " +
                         "dni CHAR(9))";
 
