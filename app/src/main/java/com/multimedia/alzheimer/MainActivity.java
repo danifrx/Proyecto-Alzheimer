@@ -91,12 +91,12 @@ public class MainActivity extends AppCompatActivity {
                             dni1 = c.getString(2);
                             db.close();
                       // } while (c.moveToNext());
-                    } else {
+                    } else if ((nombre1 == null) && (dni1 == null))  {
                         Toast.makeText(MainActivity.this, "No existe el usuario", Toast.LENGTH_SHORT).show();
                         db.close();
                     }
 
-                  if (nombre.equals(nombre1) && (dni.equals(dni1)) && (!nota.isEmpty())) {
+                  if ((nombre1 != null) && (dni1 != null) && (nota != null)) {
                         Intent i = new Intent(v.getContext(),VentanaNota.class);
                         i.putExtra("Nota", nota);
                         startActivity(i);
