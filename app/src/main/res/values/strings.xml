@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Alzheimer</string>
+    <string name="datos_del_usuario">Datos del usuario</string>
+    <string name="qu_deseas_hacer">¿Qué deseas hacer?</string>
+    <string name="realizar_test">Realizar test</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="nombre">Nombre:</string>
+    <string name="resultado_anterior">Resultado anterior:</string>
+    <string name="tlf">Tlf:</string>
+    <string name="dni">DNI:</string>
 </resources>
