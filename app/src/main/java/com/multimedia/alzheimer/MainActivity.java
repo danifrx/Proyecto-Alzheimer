@@ -97,9 +97,9 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                   if ((nombre1 != null) && (dni1 != null) && (nota != null)) {
-                        Intent i = new Intent(v.getContext(),VentanaNotaUR.class);
+                        /*Intent i = new Intent(v.getContext(),VentanaNotaUR.class);
                         i.putExtra("NotaUR", nota);
-                        startActivity(i);
+                        startActivity(i);*/
                     } else {
                         Intent b = new Intent(v.getContext(),VentanaPostFormulario2.class);
                         b.putExtra("Nombre", nombre);
