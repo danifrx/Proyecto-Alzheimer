@@ -243,12 +243,4 @@
         app:layout_constraintStart_toStartOf="@+id/guideline29"
         app:layout_constraintTop_toTopOf="@+id/guideline31" />
 
-    <Button
-        android:id="@+id/button_borrado"
-        android:layout_width="324dp"
-        android:layout_height="44dp"
-        android:text="Borrar paciente"
-        tools:layout_editor_absoluteX="46dp"
-        tools:layout_editor_absoluteY="541dp" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

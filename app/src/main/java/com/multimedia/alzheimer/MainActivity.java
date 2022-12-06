@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText editText_nombre;
     private EditText editText_dni;
     private Button button_iniciarsesion;
-    private Button button_registrar;
+    private Button button_registrar, button_borrado;
     private String notaanterior;
     String nombre, dni, tlf, nombre1, dni1, resultado = "";
     String nombre2, dni2, tlf2;
@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         editText_dni = (EditText) findViewById(R.id.editText_dni);
         button_iniciarsesion = (Button) findViewById(R.id.button_iniciarsesion);
         button_registrar = (Button) findViewById(R.id.button_registrar);
+        button_borrado = (Button) findViewById(R.id.button_borrado);
 
         pulsarInicioSesion();
         registrarse();
@@ -145,6 +146,16 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),VentanaFormulario.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    public void borrar() {
+        button_borrado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),BorrarPaciente.class);
                 startActivity(i);
             }
         });
