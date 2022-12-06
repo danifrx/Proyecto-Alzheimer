@@ -14,10 +14,10 @@
         android:theme="@style/Theme.Alzheimer"
         tools:targetApi="31">
         <activity
-            android:name=".VentanaNotaUR"
+            android:name=".VentanaTestUR"
             android:exported="false" />
         <activity
-            android:name=".VentanaTextUR"
+            android:name=".VentanaNotaUR"
             android:exported="false" />
         <activity
             android:name=".VentanaPostFormularioUR"

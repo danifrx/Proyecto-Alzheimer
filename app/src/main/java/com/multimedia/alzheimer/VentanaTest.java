@@ -47,12 +47,12 @@ public class VentanaTest extends AppCompatActivity {
         Intent i = getIntent();
         dni = i.getStringExtra("DocumentoIdentidad");
 
-        spinner1 = (Spinner) findViewById(R.id.spinner11);
-        spinner2 = (Spinner) findViewById(R.id.spinner21);
-        spinner3 = (Spinner) findViewById(R.id.spinner31);
-        spinner4 = (Spinner) findViewById(R.id.spinner41);
-        spinner5 = (Spinner) findViewById(R.id.spinner51);
-        spinner6 = (Spinner) findViewById(R.id.spinner61);
+        spinner1 = (Spinner) findViewById(R.id.spinner1);
+        spinner2 = (Spinner) findViewById(R.id.spinner2);
+        spinner3 = (Spinner) findViewById(R.id.spinner3);
+        spinner4 = (Spinner) findViewById(R.id.spinner4);
+        spinner5 = (Spinner) findViewById(R.id.spinner5);
+        spinner6 = (Spinner) findViewById(R.id.spinner6);
         button_enviarRespuestas = (Button) findViewById(R.id.button_enviarRespuestas1);
 
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones1);

@@ -40,7 +40,7 @@ public class VentanaNotaUR extends AppCompatActivity {
         button_repetir2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),VentanaTextUR.class);
+                Intent i = new Intent(v.getContext(),VentanaTestUR.class);
                 startActivity(i);
             }
         });

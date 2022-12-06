@@ -4,17 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 
-public class VentanaTextUR extends AppCompatActivity {
+public class VentanaTestUR extends AppCompatActivity {
 
-    private Button button_enviarRespuestas1;
+    private Button button_er;
     private Spinner spinner11;
     private Spinner spinner21;
     private Spinner spinner31;
@@ -42,7 +42,7 @@ public class VentanaTextUR extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ventana_text_ur);
+        setContentView(R.layout.activity_ventana_test_ur);
 
         spinner11 = (Spinner) findViewById(R.id.spinner11);
         spinner21 = (Spinner) findViewById(R.id.spinner21);
@@ -50,7 +50,7 @@ public class VentanaTextUR extends AppCompatActivity {
         spinner41 = (Spinner) findViewById(R.id.spinner41);
         spinner51 = (Spinner) findViewById(R.id.spinner51);
         spinner61 = (Spinner) findViewById(R.id.spinner61);
-        button_enviarRespuestas1 = (Button) findViewById(R.id.button_enviarRespuestas1);
+        button_er = (Button) findViewById(R.id.button_er);
 
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones1);
         spinner11.setAdapter(adaptador1);
@@ -70,11 +70,11 @@ public class VentanaTextUR extends AppCompatActivity {
         ArrayAdapter<String> adaptador6 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones6);
         spinner61.setAdapter(adaptador6);
 
-        Intent b = getIntent();
-        dniUR = b.getStringExtra("DniUR");
+        Intent a = getIntent();
+        dniUR = a.getStringExtra("DniUR");
 
         puntuacion();
-       // actualizarDB();
+        actualizarDB();
         pulsar();
     }
 
@@ -135,7 +135,7 @@ public class VentanaTextUR extends AppCompatActivity {
     }
 
     public void pulsar() {
-        button_enviarRespuestas1.setOnClickListener(new View.OnClickListener() {
+        button_er.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),VentanaNotaUR.class);
