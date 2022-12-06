@@ -63,7 +63,11 @@ public class MainActivity extends AppCompatActivity {
                     editText_dni.setText("");
                 } else {
 
+                    boolean comprobar = validarNif(dni);
 
+                    if(!comprobar) {
+                        Toast.makeText(MainActivity.this, "Formato dni incorrecto", Toast.LENGTH_SHORT).show();
+                    }
 
                    // Toast.makeText(MainActivity.this, tlf, Toast.LENGTH_SHORT).show();
                     leerDatosPaciente();
@@ -116,6 +120,10 @@ public class MainActivity extends AppCompatActivity {
         }
         c.close();
         db.close();
+    }
+
+    public boolean validarNif(String nif) {
+        return nif.matches(("^[0-9]{8}[A-Z]{1}$"));
     }
 
     public void leerDatosTest() {

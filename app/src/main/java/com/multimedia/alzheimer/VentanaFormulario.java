@@ -48,29 +48,42 @@ public class VentanaFormulario extends AppCompatActivity {
                 String tlf = editTextPhone.getText().toString();
                 dni = editTextText_Dni.getText().toString();
 
+
+
                 //Si no rellenó todos los valores del formulario error y no se genera alta de paciente.
                 if(nombre.length()==0 || tlf.length()==0 || dni.length()==0){
                     Toast.makeText(v.getContext(), "Debes rellenar todos los datos para el registro", Toast.LENGTH_SHORT).show();
                 } else {
-                    //Todos los datos están cubiertos para dar de alta un paciente.
 
-                    //Preparar la información anterior en un array de valores para incluirlos en la consulta de insert
-                    ContentValues valores = new ContentValues();
+                    boolean comprobarDni = validarNif(dni);
+                    boolean comprobarTlf = validarTelefono(tlf);
 
-                    valores.put("nombre",nombre);
-                    valores.put("telefono",tlf);
-                    valores.put("dni",dni);
-                    //Incremento de la del num del paciente.
-                    db.insert("Paciente",null,valores);
+                    if(!comprobarDni) {
+                        Toast.makeText(VentanaFormulario.this, "Formato dni incorrecto", Toast.LENGTH_SHORT).show();
+                    } else if (!comprobarTlf) {
+                        Toast.makeText(VentanaFormulario.this, "Formato teléfono incorrecto", Toast.LENGTH_SHORT).show();
+                    } else {
+                        //Todos los datos están cubiertos para dar de alta un paciente.
 
-                    //Vacío campos del formulario.
-                    editTextText_Nombre.setText("");
-                    editTextPhone.setText("");
-                    editTextText_Dni.setText("");
+                        //Preparar la información anterior en un array de valores para incluirlos en la consulta de insert
+                        ContentValues valores = new ContentValues();
 
-                    //Mensaje informativo
-                    Toast.makeText(v.getContext(), "Paciente dado de alta", Toast.LENGTH_SHORT).show();
-                    cambio(v);
+                        valores.put("nombre",nombre);
+                        valores.put("telefono",tlf);
+                        valores.put("dni",dni);
+                        //Incremento de la del num del paciente.
+                        db.insert("Paciente",null,valores);
+
+                        //Vacío campos del formulario.
+                        editTextText_Nombre.setText("");
+                        editTextPhone.setText("");
+                        editTextText_Dni.setText("");
+
+                        //Mensaje informativo
+                        Toast.makeText(v.getContext(), "Paciente dado de alta", Toast.LENGTH_SHORT).show();
+                        cambio(v);
+                    }
+
                 }
 
                 //Cierro conexión con BBDD.
@@ -78,6 +91,14 @@ public class VentanaFormulario extends AppCompatActivity {
             }
         });
 
+    }
+
+    public boolean validarNif(String nif) {
+        return nif.matches(("^[0-9]{8}[A-Z]{1}$"));
+    }
+
+    public boolean validarTelefono(String telefono) {
+        return telefono.matches("^(9|8|7|6){1}[0-9]{8}$");
     }
 
     public void cambio (View v) {
