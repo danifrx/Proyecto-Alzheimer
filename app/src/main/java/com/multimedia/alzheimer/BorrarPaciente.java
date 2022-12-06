@@ -13,7 +13,7 @@ import android.widget.Toast;
 public class BorrarPaciente extends AppCompatActivity {
 
     private EditText editText_borrarPaciente;
-    private Button button_borrar;
+    private Button button_borrar, button_volver;
     private String dni;
 
     @Override
@@ -23,9 +23,21 @@ public class BorrarPaciente extends AppCompatActivity {
 
         editText_borrarPaciente = (EditText) findViewById(R.id.editText_borrarPaciente);
         button_borrar = (Button) findViewById(R.id.button_borrar);
+        button_volver = (Button) findViewById(R.id.button_volver);
 
         borrar();
+        volver();
 
+    }
+
+    private void volver() {
+        button_volver.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void borrarPaciente() {
