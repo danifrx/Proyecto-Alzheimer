@@ -48,7 +48,7 @@ public class BorrarPaciente extends AppCompatActivity {
         String[] condicion = {dni};
 
         db1.delete("Test",seleccion,condicion);
-
+        //
         db1.close();
     }
 
