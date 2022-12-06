@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class VentanaNota extends AppCompatActivity {
 
     private TextView textView_nota;
-    private Button button_repetir;
+    //private Button button_repetir;
     private Button button_cerrar;
 
     @Override
@@ -20,7 +20,7 @@ public class VentanaNota extends AppCompatActivity {
         setContentView(R.layout.activity_ventana_nota);
 
         textView_nota = (TextView) findViewById(R.id.textView_nota1);
-        button_repetir = (Button) findViewById(R.id.button_repetir1);
+       // button_repetir = (Button) findViewById(R.id.button_repetir1);
         button_cerrar = (Button) findViewById(R.id.button_cerrar1);
 
         textView_nota.setText("");
@@ -32,9 +32,9 @@ public class VentanaNota extends AppCompatActivity {
 
 
         cerrarSesion();
-        repetirTest();
+        //repetirTest();
     }
-
+/*
     public void repetirTest() {
         button_repetir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,7 +44,7 @@ public class VentanaNota extends AppCompatActivity {
             }
         });
     }
-
+*/
     public void cerrarSesion() {
         button_cerrar.setOnClickListener(new View.OnClickListener() {
             @Override

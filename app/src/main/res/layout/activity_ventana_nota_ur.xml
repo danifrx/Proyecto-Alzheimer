@@ -101,29 +101,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline15"
         app:layout_constraintTop_toTopOf="@+id/guideline17" />
 
-    <TextView
-        android:id="@+id/textView_pregunta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="¿Qué desea hacer?"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/guideline20"
-        app:layout_constraintEnd_toStartOf="@+id/guideline16"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/guideline19" />
-
-    <Button
-        android:id="@+id/button_repetir2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:text="Repetir text"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline24"
-        app:layout_constraintEnd_toStartOf="@+id/guideline16"
-        app:layout_constraintStart_toStartOf="@+id/guideline15"
-        app:layout_constraintTop_toTopOf="@+id/guideline23" />
-
     <Button
         android:id="@+id/button_cerrar2"
         android:layout_width="0dp"
