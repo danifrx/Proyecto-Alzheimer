@@ -8,4 +8,8 @@
     <string name="resultado_anterior">Resultado anterior:</string>
     <string name="tlf">Tlf:</string>
     <string name="dni">DNI:</string>
+    <string name="borrado_de_paciente">Borrado de paciente</string>
+    <string name="introduzca_el_dni_del_paciente_que_desea_eliminar">Introduzca el DNI del paciente que desea eliminar:</string>
+    <string name="borrar">Borrar</string>
+    <string name="volver_al_men">Volver al menú</string>
 </resources>

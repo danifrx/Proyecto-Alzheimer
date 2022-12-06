@@ -10,7 +10,7 @@
         android:id="@+id/textView_borrar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Borrado de paciente"
+        android:text="@string/borrado_de_paciente"
         android:textAlignment="center"
         android:textDirection="locale"
         android:textIsSelectable="false"
@@ -24,14 +24,16 @@
         android:id="@+id/textView_peticion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Introduzca el DNI del paciente que desea eliminar:"
+        android:labelFor="@id/editText_borrarPaciente"
+        android:text="@string/introduzca_el_dni_del_paciente_que_desea_eliminar"
         android:textAlignment="center"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline44"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
-        app:layout_constraintTop_toTopOf="@+id/guideline41" />
+        app:layout_constraintTop_toTopOf="@+id/guideline41"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
@@ -108,18 +110,21 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:importantForAutofill="no"
         android:inputType="textPersonName"
+        android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline45"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
         app:layout_constraintTop_toTopOf="@+id/guideline44"
-        app:layout_constraintVertical_bias="0.5" />
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/button_borrar"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Borrar"
+        android:text="@string/borrar"
         app:layout_constraintBottom_toTopOf="@+id/guideline46"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintHorizontal_bias="0.498"
@@ -130,7 +135,7 @@
         android:id="@+id/button_volver"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="Volver al menú"
+        android:text="@string/volver_al_men"
         app:layout_constraintBottom_toTopOf="@+id/guideline49"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline42"
