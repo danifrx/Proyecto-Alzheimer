@@ -151,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void borrar() {
         button_borrado.setOnClickListener(new View.OnClickListener() {
             @Override
