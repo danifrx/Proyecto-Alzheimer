@@ -58,7 +58,7 @@ public class BorrarPaciente extends AppCompatActivity {
             public void onClick(View v) {
                 dni = editText_borrarPaciente.getText().toString();
                 if(dni.length()==0){
-                    Toast.makeText(v.getContext(), "Rellene el campo código para realizar la baja", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "Rellene el campo del dni para realizar la baja", Toast.LENGTH_SHORT).show();
                 } else {
                     borrarTest();
                     borrarPaciente();
