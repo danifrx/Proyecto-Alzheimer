@@ -29,10 +29,12 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
         String nombre = i.getStringExtra("nombre");
         String tlf = i.getStringExtra("tlf");
         String dni = i.getStringExtra("dni");
+        String resultado = i.getStringExtra("res");
 
         textView_NombreBD.setText(nombre);
         textView_DniBD.setText(dni);
         textView_TlfBD.setText(tlf);
+        textView_ResultadoBD.setText(resultado);
 
         realizarTest();
         cerrarSesion();

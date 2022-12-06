@@ -25,8 +25,9 @@ public class MainActivity extends AppCompatActivity {
     private Button button_iniciarsesion;
     private Button button_registrar;
     private String notaanterior;
-    String nombre, dni, tlf, nombre1, dni1;
+    String nombre, dni, tlf, nombre1, dni1, resultado = "";
     String nombre2, dni2, tlf2;
+    ArrayList<Paciente> pacientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +49,7 @@ public class MainActivity extends AppCompatActivity {
         button_iniciarsesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Instancio la conexión con la base de datos
-                AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(v.getContext(),"registro",null,1);
-                //Abro la conexión de base de datos, con permisos de lectura.
-                SQLiteDatabase db = adminHelper.getReadableDatabase();
+
 
                 //Leo el nombre y el DNI introducido por el usuario
                 nombre = editText_nombre.getText().toString();
@@ -65,50 +63,73 @@ public class MainActivity extends AppCompatActivity {
                     editText_dni.setText("");
                 } else {
 
-                    //Hacemos la búsqueda del paciente.
 
-                    //Array que incluye los campos/columnas de la tabla Paciente, sobre la que hacer la consulta.
-                    String[] columnas = {"nombre","telefono","dni"};
 
-                    //Filtros de la consulta para aplicar en la cláusula WHERE "nombre" = nombre and "dni" = dni.
-                    String seleccion = "dni" + " = ?";
-                    String[] condicion = {dni};
-
-                    //El resultado de la consulta de select se guarda en el Cursor
-                    Cursor c = db.query("Paciente",columnas,seleccion,condicion,null,null,null);
-                    //Recorrer el array de resultados (cursor) para mostrar al usario la informacion
-                    //obtenida dentro de los campos del formulario.
-                    ArrayList<Paciente> pacientes = new ArrayList<>();
-                    while(c.moveToNext()) {
-                       nombre1 = c.getString(c.getColumnIndexOrThrow("nombre"));
-                       tlf = c.getString(c.getColumnIndexOrThrow("telefono"));
-                       dni1 = c.getString(c.getColumnIndexOrThrow("dni"));
-                       Paciente paciente = new Paciente(nombre1,tlf,dni1);
-                       pacientes.add(paciente);
-                    }
-
-                    c.close();
-
-                    Toast.makeText(MainActivity.this, tlf, Toast.LENGTH_SHORT).show();
+                   // Toast.makeText(MainActivity.this, tlf, Toast.LENGTH_SHORT).show();
+                    leerDatosPaciente();
+                    leerDatosTest();
 
                    if (pacientes.size() > 0) {
-
                         Toast.makeText(MainActivity.this, "Se ha encontrado al paciente", Toast.LENGTH_SHORT).show();
-
                        //Paso la nota anterior del text realizado por el usuario a la activity de activity_ventana_nota.xml
                        Intent i = new Intent(v.getContext(),VentanaPostFormularioUR.class);
                        i.putExtra("nombre",nombre1);
                        i.putExtra("tlf",tlf);
                        i.putExtra("dni",dni1);
+                       i.putExtra("res", resultado);
                        startActivity(i);
-
                     } else {
                         Toast.makeText(MainActivity.this, "No se ha encontrado al paciente", Toast.LENGTH_SHORT).show();
                     }
                 }
-               db.close();
+
             }
         });
+    }
+
+    public void leerDatosPaciente() {
+        //Instancio la conexión con la base de datos
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"registro",null,1);
+        //Abro la conexión de base de datos, con permisos de lectura.
+        SQLiteDatabase db = adminHelper.getReadableDatabase();
+
+        //Hacemos la búsqueda del paciente.
+
+        //Array que incluye los campos/columnas de la tabla Paciente, sobre la que hacer la consulta.
+        String[] columnas = {"nombre","telefono","dni"};
+
+        //Filtros de la consulta para aplicar en la cláusula WHERE "nombre" = nombre and "dni" = dni.
+        String seleccion = "dni" + " = ?";
+        String[] condicion = {dni};
+
+        //El resultado de la consulta de select se guarda en el Cursor
+        Cursor c = db.query("Paciente",columnas,seleccion,condicion,null,null,null);
+        //Recorrer el array de resultados (cursor) para mostrar al usario la informacion
+        //obtenida dentro de los campos del formulario.
+        pacientes = new ArrayList<>();
+        while(c.moveToNext()) {
+            nombre1 = c.getString(c.getColumnIndexOrThrow("nombre"));
+            tlf = c.getString(c.getColumnIndexOrThrow("telefono"));
+            dni1 = c.getString(c.getColumnIndexOrThrow("dni"));
+            Paciente paciente = new Paciente(nombre1,tlf,dni1);
+            pacientes.add(paciente);
+        }
+        c.close();
+        db.close();
+    }
+
+    public void leerDatosTest() {
+        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
+        SQLiteDatabase db1 = adminHelper1.getReadableDatabase();
+        String[] columnas1 = {"dni", "resultado"};
+        String seleccion1 = "dni" + " = ?";
+        String[] condicion1= {dni};
+        Cursor c1 = db1.query("Test",columnas1,seleccion1,condicion1,null,null,null);
+        while(c1.moveToNext()) {
+            resultado = c1.getString(c1.getColumnIndexOrThrow("resultado"));
+        }
+        c1.close();
+        db1.close();
     }
 
     public void registrarse() {
