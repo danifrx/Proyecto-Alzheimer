@@ -26,8 +26,8 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
         setContentView(R.layout.activity_ventana_post_formulario2);
 
         textView_nombre = (TextView) findViewById(R.id.textView_nombre);
-        button_realizarTest = (Button) findViewById(R.id.button_realizarTest);
-        button_cerrarSesion = (Button) findViewById(R.id.button_cerrarSesion);
+        button_realizarTest = (Button) findViewById(R.id.button_realizarTest1);
+        button_cerrarSesion = (Button) findViewById(R.id.button_cerrarSesion1);
 
         Intent i = getIntent();
         String nombre = i.getStringExtra("Nombre");
@@ -60,7 +60,7 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
         });
     }
 
-    public void recogida_datos(){
+   /* public void recogida_datos(){
         //Instancio de la conexión con la Base de datos
         AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "pacientes", null, 1);
 
@@ -95,5 +95,5 @@ public class VentanaPostFormulario2 extends AppCompatActivity {
         }
 
         textView_nombre.setText(nombre1);
-    }
+    }*/
 }

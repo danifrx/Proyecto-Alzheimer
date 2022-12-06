@@ -28,7 +28,7 @@ public class VentanaTest extends AppCompatActivity {
     private Spinner spinner5;
     private Spinner spinner6;
     private String[] opciones1 = {"", "Circulo", "Triángulo", "Estrella", "Cuadrado"};
-    private String[] opciones2 = {"", "-10", "6.55", "7.24", "9.58"};
+    private String[] opciones2 = {"", "1.5", "6.55", "7.24", "9.58"};
     private String[] opciones3 = {"", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
     private String[] opciones4 = {"", "2", "5", "3", "4"};
     private String[] opciones5 = {"", "Son frutas", "Son verduras", "Son productos cárnicos", "Son vehículos"};
@@ -40,14 +40,18 @@ public class VentanaTest extends AppCompatActivity {
     String datoSpinner4;
     String datoSpinner5;
     String datoSpinner6;
+    String resultado;
 
     int ct = 0;
-    String dni;
+    String dni, dniComprobante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_test);
+
+        Intent i = getIntent();
+        dni = i.getStringExtra("DocumentoIdentidad");
 
         spinner1 = (Spinner) findViewById(R.id.spinner1);
         spinner2 = (Spinner) findViewById(R.id.spinner2);
@@ -75,9 +79,96 @@ public class VentanaTest extends AppCompatActivity {
         ArrayAdapter<String> adaptador6 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones6);
         spinner6.setAdapter(adaptador6);
 
+        /*pulsarSpinner1();
+        pulsarSpinner2();
+        pulsarSpinner3();
+        pulsarSpinner4();
+        pulsarSpinner5();
+        pulsarSpinner6();*/
+        leerDatosTest();
+        puntuacion();
         pulsar();
+
     }
 
+   /* public void pulsarSpinner1() {
+        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                datoSpinner1 = spinner1.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void pulsarSpinner2() {
+        spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                datoSpinner2 = spinner2.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void pulsarSpinner3() {
+        spinner3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                datoSpinner3 = spinner3.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void pulsarSpinner4() {
+        spinner4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                datoSpinner4 = spinner4.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void pulsarSpinner5() {
+        spinner5.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                datoSpinner5 = spinner5.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }
+    public void pulsarSpinner6() {
+        spinner6.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
+                datoSpinner6 = spinner6.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+    }*/
 
     public void puntuacion() {
         datoSpinner1 = spinner1.getSelectedItem().toString();
@@ -108,28 +199,58 @@ public class VentanaTest extends AppCompatActivity {
             ct++;
         }
 
-        Intent i = getIntent();
-        dni = i.getStringExtra("DocumentoIdentidad");
+        if (ct <= 2) {
+            resultado = "Alzheimer";
+        } else if (ct > 2 && ct <= 4) {
+           resultado = "Peligro de alzheimer";
+        } else if (ct > 4 && ct <= 6) {
+           resultado = "Buena salud mental";
+        }
 
-        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"pacientes", null, 1);
-        SQLiteDatabase db1 = adminHelper1.getWritableDatabase();
+        //resultado = String.valueOf(ct);
+       //resultado = datoSpinner1;
 
-        String strSQL = "UPDATE Paciente SET resultadoAnterior = " + ct + " WHERE dni = " + dni;
+       // if (dniComprobante.length() == 0) {
+            //Instancio la conexión con la BBDD
+            AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "registro", null, 1);
+            //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
+            SQLiteDatabase db = adminHelper.getWritableDatabase();
 
-        db1.execSQL(strSQL);
+            ContentValues valores = new ContentValues();
 
+            valores.put("dni", dni);
+            valores.put("resultado", resultado);
+            //Incremento de la del num del paciente.
+            db.insert("Test", null, valores);
+            db.close();
+      //  }
+    }
 
-
+    public void leerDatosTest() {
+        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
+        SQLiteDatabase db1 = adminHelper1.getReadableDatabase();
+        String[] columnas1 = {"dni", "resultado"};
+        String seleccion1 = "dni" + " = ?";
+        String[] condicion1= {dni};
+        Cursor c1 = db1.query("Test",columnas1,seleccion1,condicion1,null,null,null);
+        while(c1.moveToNext()) {
+            dniComprobante = c1.getString(c1.getColumnIndexOrThrow("dni"));
+        }
+        c1.close();
+        db1.close();
     }
 
     public void pulsar() {
         button_enviarRespuestas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                puntuacion();
-                Intent i = new Intent(v.getContext(),VentanaNota.class);
+
+                /*Intent i = new Intent(v.getContext(),VentanaNota.class);
                 String nota = String.valueOf(ct);
                 i.putExtra("Nota", nota);
+                startActivity(i);*/
+                Intent i = new Intent(v.getContext(),VentanaNota.class);
+                i.putExtra("Nota", resultado);
                 startActivity(i);
             }
         });

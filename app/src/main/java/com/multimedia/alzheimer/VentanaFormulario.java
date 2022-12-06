@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextText_Nombre;
-    private EditText editTextText_Apellidos;
-    private EditText editTextDate;
     private EditText editTextPhone;
     private EditText editTextText_Dni;
     private Button button_GuardarDatos;
@@ -28,8 +26,6 @@ public class VentanaFormulario extends AppCompatActivity {
         setContentView(R.layout.activity_ventana_formulario);
 
         editTextText_Nombre = (EditText) findViewById(R.id.editTextText_Nombre);
-        editTextText_Apellidos = (EditText) findViewById(R.id.editTextText_Apellidos);
-        editTextDate = (EditText) findViewById(R.id.editTextDate);
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextText_Dni = (EditText) findViewById(R.id.editTextText_Dni);
         button_GuardarDatos = (Button) findViewById(R.id.button_GuardarDatos);
@@ -43,19 +39,17 @@ public class VentanaFormulario extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Instancio la conexión con la BBDD
-                AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(v.getContext(),"pacientes", null, 1);
+                AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(v.getContext(),"registro", null, 1);
                 //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
                 SQLiteDatabase db = adminHelper.getWritableDatabase();
 
                 //Recogemos la información que el usuario rellenó en los campos del formulario
                 nombre = editTextText_Nombre.getText().toString();
-                String apellidos = editTextText_Apellidos.getText().toString();
-                String fecha = editTextDate.getText().toString();
                 String tlf = editTextPhone.getText().toString();
                 dni = editTextText_Dni.getText().toString();
 
                 //Si no rellenó todos los valores del formulario error y no se genera alta de paciente.
-                if(nombre.length()==0 || apellidos.length()==0 || fecha.length()==0 || tlf.length()==0 || dni.length()==0){
+                if(nombre.length()==0 || tlf.length()==0 || dni.length()==0){
                     Toast.makeText(v.getContext(), "Debes rellenar todos los datos para el registro", Toast.LENGTH_SHORT).show();
                 } else {
                     //Todos los datos están cubiertos para dar de alta un paciente.
@@ -64,8 +58,6 @@ public class VentanaFormulario extends AppCompatActivity {
                     ContentValues valores = new ContentValues();
 
                     valores.put("nombre",nombre);
-                    valores.put("apellidos",apellidos);
-                    valores.put("fecha",fecha);
                     valores.put("telefono",tlf);
                     valores.put("dni",dni);
                     //Incremento de la del num del paciente.
@@ -73,8 +65,6 @@ public class VentanaFormulario extends AppCompatActivity {
 
                     //Vacío campos del formulario.
                     editTextText_Nombre.setText("");
-                    editTextText_Apellidos.setText("");
-                    editTextDate.setText("");
                     editTextPhone.setText("");
                     editTextText_Dni.setText("");
 

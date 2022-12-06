@@ -30,14 +30,16 @@ public class VentanaNota extends AppCompatActivity {
         Intent i = getIntent();
         String nota = i.getStringExtra("Nota");
 
-        int nota1 = Integer.parseInt(nota);
+       /* int nota1 = Integer.parseInt(nota);
+
         if (nota1 < 2) {
             textView_nota.setText("Alzheimer");
         } else if (nota1 >= 2 && nota1 <= 4) {
             textView_nota.setText("Peligro de alzheimer");
         } else if (nota1 > 4 && nota1 <= 6) {
             textView_nota.setText("Buena salud mental");
-        }
+        }*/
+        textView_nota.setText(nota);
 
 
         cerrarSesion();
