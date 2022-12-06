@@ -29,7 +29,6 @@ public class VentanaTextUR extends AppCompatActivity {
     private String[] opciones6 = {"", "Hacia arriba", "Hacia la derecha", "Hacia abajo", "Hacia la izquierda"};
 
     int ct = 0;
-    String dni, dniComprobante;
 
     String datoSpinner1;
     String datoSpinner2;
