@@ -80,7 +80,7 @@ public class VentanaTest extends AppCompatActivity {
         pulsarSpinner4();
         pulsarSpinner5();
         pulsarSpinner6();*/
-        leerDatosTest();
+       // leerDatosTest();
         puntuacion();
         pulsar();
 

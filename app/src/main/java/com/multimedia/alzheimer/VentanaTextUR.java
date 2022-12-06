@@ -74,6 +74,7 @@ public class VentanaTextUR extends AppCompatActivity {
         dniUR = b.getStringExtra("DniUR");
 
         puntuacion();
+       // actualizarDB();
         pulsar();
     }
 
@@ -114,6 +115,7 @@ public class VentanaTextUR extends AppCompatActivity {
             resultadoUR = "Buena salud mental";
         }
 
+        //resultadoUR = dniUR;
 
 
     }
@@ -127,9 +129,9 @@ public class VentanaTextUR extends AppCompatActivity {
         valores.put("resultado", resultadoUR);
         String seleccion = "dni" + " = ?";
         String[] condicion = {dniUR};
-        db.update("registro",valores,seleccion,condicion);
-        db.close();
+        db.update("Test",valores,seleccion,condicion);
 
+        db.close();
     }
 
     public void pulsar() {
