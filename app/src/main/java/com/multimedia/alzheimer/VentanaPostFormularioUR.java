@@ -12,6 +12,7 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
 
     private TextView textView_NombreBD, textView_ResultadoBD, textView_TlfBD, textView_DniBD;
     private Button button_realizarTest1, button_cerrarSesion1;
+    String dni;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +29,7 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
         Intent i = getIntent();
         String nombre = i.getStringExtra("nombre");
         String tlf = i.getStringExtra("tlf");
-        String dni = i.getStringExtra("dni");
+        dni = i.getStringExtra("dni");
         String resultado = i.getStringExtra("res");
 
         textView_NombreBD.setText(nombre);
@@ -45,6 +46,7 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),VentanaTextUR.class);
+                i.putExtra("DniUR", dni);
                 startActivity(i);
             }
         });

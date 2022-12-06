@@ -37,6 +37,7 @@ public class VentanaTextUR extends AppCompatActivity {
     String datoSpinner5;
     String datoSpinner6;
     String resultadoUR;
+    String dniUR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,9 @@ public class VentanaTextUR extends AppCompatActivity {
 
         ArrayAdapter<String> adaptador6 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones6);
         spinner61.setAdapter(adaptador6);
+
+        Intent b = getIntent();
+        dniUR = b.getStringExtra("DniUR");
 
         puntuacion();
         pulsar();
@@ -110,6 +114,21 @@ public class VentanaTextUR extends AppCompatActivity {
             resultadoUR = "Buena salud mental";
         }
 
+
+
+    }
+
+    public void actualizarDB() {
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "registro", null, 1);
+        SQLiteDatabase db = adminHelper.getWritableDatabase();
+
+        ContentValues valores = new ContentValues();
+        valores.put("dni", dniUR);
+        valores.put("resultado", resultadoUR);
+        String seleccion = "dni" + " = ?";
+        String[] condicion = {dniUR};
+        db.update("registro",valores,seleccion,condicion);
+        db.close();
 
     }
 
