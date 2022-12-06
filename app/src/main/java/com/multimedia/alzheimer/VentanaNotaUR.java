@@ -10,52 +10,44 @@ import android.widget.TextView;
 
 public class VentanaNotaUR extends AppCompatActivity {
 
-    private TextView textView_nota1;
-    private Button button_repetir1;
-    private Button button_cerrar1;
-    String nota1;
-    String doc1;
+    private TextView textView_nota2;
+    private Button button_repetir2;
+    private Button button_cerrar2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_nota_ur);
 
-        textView_nota1 = (TextView) findViewById(R.id.textView_nota2);
-        button_repetir1 = (Button) findViewById(R.id.button_repetir2);
-        button_cerrar1 = (Button) findViewById(R.id.button_cerrar2);
+        textView_nota2 = (TextView) findViewById(R.id.textView_nota2);
+        button_repetir2 = (Button) findViewById(R.id.button_repetir2);
+        button_cerrar2 = (Button) findViewById(R.id.button_cerrar2);
 
-        textView_nota1.setText("");
+        textView_nota2.setText("");
 
 
         Intent b = getIntent();
-        String notaanterior = b.getStringExtra("NotaUR");
+        String notaUR = b.getStringExtra("NotaUR");
 
-        int notaanterior1 = Integer.parseInt(notaanterior);
-        if (notaanterior1 < 2) {
-            textView_nota1.setText("Alzheimer");
-        } else if (notaanterior1 >= 2 && notaanterior1 <= 4) {
-            textView_nota1.setText("Peligro de alzheimer");
-        } else if (notaanterior1 > 4 && notaanterior1 <= 6) {
-            textView_nota1.setText("Buena salud mental");
-        }
+        textView_nota2.setText(notaUR);
 
-        cerrarSesion1();
-        repetirTest1();
+
+        cerrarSesion2();
+        repetirTest2();
     }
 
-    public void repetirTest1() {
-        button_repetir1.setOnClickListener(new View.OnClickListener() {
+    public void repetirTest2() {
+        button_repetir2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),VentanaTest.class);
+                Intent i = new Intent(v.getContext(),VentanaTextUR.class);
                 startActivity(i);
             }
         });
     }
 
-    public void cerrarSesion1() {
-        button_cerrar1.setOnClickListener(new View.OnClickListener() {
+    public void cerrarSesion2() {
+        button_cerrar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),MainActivity.class);

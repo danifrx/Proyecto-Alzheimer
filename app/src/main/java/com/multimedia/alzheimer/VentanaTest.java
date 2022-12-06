@@ -8,15 +8,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.util.Locale;
 
 public class VentanaTest extends AppCompatActivity {
 
@@ -53,13 +47,13 @@ public class VentanaTest extends AppCompatActivity {
         Intent i = getIntent();
         dni = i.getStringExtra("DocumentoIdentidad");
 
-        spinner1 = (Spinner) findViewById(R.id.spinner1);
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
-        spinner3 = (Spinner) findViewById(R.id.spinner3);
-        spinner4 = (Spinner) findViewById(R.id.spinner4);
-        spinner5 = (Spinner) findViewById(R.id.spinner5);
-        spinner6 = (Spinner) findViewById(R.id.spinner6);
-        button_enviarRespuestas = (Button) findViewById(R.id.button_enviarRespuestas);
+        spinner1 = (Spinner) findViewById(R.id.spinner11);
+        spinner2 = (Spinner) findViewById(R.id.spinner21);
+        spinner3 = (Spinner) findViewById(R.id.spinner31);
+        spinner4 = (Spinner) findViewById(R.id.spinner41);
+        spinner5 = (Spinner) findViewById(R.id.spinner51);
+        spinner6 = (Spinner) findViewById(R.id.spinner61);
+        button_enviarRespuestas = (Button) findViewById(R.id.button_enviarRespuestas1);
 
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones1);
         spinner1.setAdapter(adaptador1);
@@ -79,6 +73,7 @@ public class VentanaTest extends AppCompatActivity {
         ArrayAdapter<String> adaptador6 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones6);
         spinner6.setAdapter(adaptador6);
 
+
         /*pulsarSpinner1();
         pulsarSpinner2();
         pulsarSpinner3();
@@ -91,7 +86,79 @@ public class VentanaTest extends AppCompatActivity {
 
     }
 
-   /* public void pulsarSpinner1() {
+    public void puntuacion() {
+        datoSpinner1 = spinner1.getSelectedItem().toString();
+        datoSpinner2 = spinner2.getSelectedItem().toString();
+        datoSpinner3 = spinner3.getSelectedItem().toString();
+        datoSpinner4 = spinner4.getSelectedItem().toString();
+        datoSpinner5 = spinner5.getSelectedItem().toString();
+        datoSpinner6 = spinner6.getSelectedItem().toString();
+
+        ct = 0;
+
+        if (datoSpinner1.equals("Estrella")) {
+           ct++;
+        }
+        if (datoSpinner2.equals("6.55")) {
+            ct++;
+        }
+        if (datoSpinner3.equals("Lunes")) {
+            ct++;
+        }
+        if (datoSpinner4.equals("4")) {
+            ct++;
+        }
+        if (datoSpinner5.equals("Son frutas")) {
+            ct++;
+        }
+        if (datoSpinner6.equals("Hacia la derecha")) {
+            ct++;
+        }
+
+        if (ct <= 2) {
+            resultado = "Alzheimer";
+        } else if (ct > 2 && ct <= 4) {
+           resultado = "Peligro de alzheimer";
+        } else if (ct > 4 && ct <= 6) {
+           resultado = "Buena salud mental";
+        }
+
+        //resultado = String.valueOf(ct);
+       //resultado = datoSpinner1;
+
+
+        //Instancio la conexión con la BBDD
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "registro", null, 1);
+        //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
+        SQLiteDatabase db = adminHelper.getWritableDatabase();
+
+        ContentValues valores = new ContentValues();
+
+        valores.put("dni", dni);
+        valores.put("resultado", resultado);
+        //Incremento de la del num del paciente.
+        db.insert("Test", null, valores);
+        db.close();
+
+
+
+    }
+
+    public void leerDatosTest() {
+        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
+        SQLiteDatabase db1 = adminHelper1.getReadableDatabase();
+        String[] columnas1 = {"dni", "resultado"};
+        String seleccion1 = "dni" + " = ?";
+        String[] condicion1= {dni};
+        Cursor c1 = db1.query("Test",columnas1,seleccion1,condicion1,null,null,null);
+        while(c1.moveToNext()) {
+            dniComprobante = c1.getString(c1.getColumnIndexOrThrow("dni"));
+        }
+        c1.close();
+        db1.close();
+    }
+
+       /* public void pulsarSpinner1() {
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
@@ -169,76 +236,6 @@ public class VentanaTest extends AppCompatActivity {
             }
         });
     }*/
-
-    public void puntuacion() {
-        datoSpinner1 = spinner1.getSelectedItem().toString();
-        datoSpinner2 = spinner2.getSelectedItem().toString();
-        datoSpinner3 = spinner3.getSelectedItem().toString();
-        datoSpinner4 = spinner4.getSelectedItem().toString();
-        datoSpinner5 = spinner5.getSelectedItem().toString();
-        datoSpinner6 = spinner6.getSelectedItem().toString();
-
-        ct = 0;
-
-        if (datoSpinner1.equals("Estrella")) {
-           ct++;
-        }
-        if (datoSpinner2.equals("6.55")) {
-            ct++;
-        }
-        if (datoSpinner3.equals("Lunes")) {
-            ct++;
-        }
-        if (datoSpinner4.equals("4")) {
-            ct++;
-        }
-        if (datoSpinner5.equals("Son frutas")) {
-            ct++;
-        }
-        if (datoSpinner6.equals("Hacia la derecha")) {
-            ct++;
-        }
-
-        if (ct <= 2) {
-            resultado = "Alzheimer";
-        } else if (ct > 2 && ct <= 4) {
-           resultado = "Peligro de alzheimer";
-        } else if (ct > 4 && ct <= 6) {
-           resultado = "Buena salud mental";
-        }
-
-        //resultado = String.valueOf(ct);
-       //resultado = datoSpinner1;
-
-       // if (dniComprobante.length() == 0) {
-            //Instancio la conexión con la BBDD
-            AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "registro", null, 1);
-            //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
-            SQLiteDatabase db = adminHelper.getWritableDatabase();
-
-            ContentValues valores = new ContentValues();
-
-            valores.put("dni", dni);
-            valores.put("resultado", resultado);
-            //Incremento de la del num del paciente.
-            db.insert("Test", null, valores);
-            db.close();
-      //  }
-    }
-
-    public void leerDatosTest() {
-        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
-        SQLiteDatabase db1 = adminHelper1.getReadableDatabase();
-        String[] columnas1 = {"dni", "resultado"};
-        String seleccion1 = "dni" + " = ?";
-        String[] condicion1= {dni};
-        Cursor c1 = db1.query("Test",columnas1,seleccion1,condicion1,null,null,null);
-        while(c1.moveToNext()) {
-            dniComprobante = c1.getString(c1.getColumnIndexOrThrow("dni"));
-        }
-        c1.close();
-        db1.close();
-    }
 
     public void pulsar() {
         button_enviarRespuestas.setOnClickListener(new View.OnClickListener() {

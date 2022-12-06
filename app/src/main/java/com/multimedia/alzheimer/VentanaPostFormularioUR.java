@@ -44,7 +44,7 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
         button_realizarTest1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),VentanaTest.class);
+                Intent i = new Intent(v.getContext(),VentanaTextUR.class);
                 startActivity(i);
             }
         });

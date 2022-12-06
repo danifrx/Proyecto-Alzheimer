@@ -14,13 +14,13 @@ import android.widget.Spinner;
 
 public class VentanaTextUR extends AppCompatActivity {
 
-    private Button button_enviarRespuestas;
-    private Spinner spinner1;
-    private Spinner spinner2;
-    private Spinner spinner3;
-    private Spinner spinner4;
-    private Spinner spinner5;
-    private Spinner spinner6;
+    private Button button_enviarRespuestas1;
+    private Spinner spinner11;
+    private Spinner spinner21;
+    private Spinner spinner31;
+    private Spinner spinner41;
+    private Spinner spinner51;
+    private Spinner spinner61;
     private String[] opciones1 = {"", "Circulo", "Triángulo", "Estrella", "Cuadrado"};
     private String[] opciones2 = {"", "1.5", "6.55", "7.24", "9.58"};
     private String[] opciones3 = {"", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"};
@@ -37,68 +37,50 @@ public class VentanaTextUR extends AppCompatActivity {
     String datoSpinner4;
     String datoSpinner5;
     String datoSpinner6;
-    String resultado;
+    String resultadoUR;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_text_ur);
 
-        Intent i = getIntent();
-        dni = i.getStringExtra("DocumentoIdentidad");
-
-        spinner1 = (Spinner) findViewById(R.id.spinner1);
-        spinner2 = (Spinner) findViewById(R.id.spinner2);
-        spinner3 = (Spinner) findViewById(R.id.spinner3);
-        spinner4 = (Spinner) findViewById(R.id.spinner4);
-        spinner5 = (Spinner) findViewById(R.id.spinner5);
-        spinner6 = (Spinner) findViewById(R.id.spinner6);
-        button_enviarRespuestas = (Button) findViewById(R.id.button_enviarRespuestas);
+        spinner11 = (Spinner) findViewById(R.id.spinner11);
+        spinner21 = (Spinner) findViewById(R.id.spinner21);
+        spinner31 = (Spinner) findViewById(R.id.spinner31);
+        spinner41 = (Spinner) findViewById(R.id.spinner41);
+        spinner51 = (Spinner) findViewById(R.id.spinner51);
+        spinner61 = (Spinner) findViewById(R.id.spinner61);
+        button_enviarRespuestas1 = (Button) findViewById(R.id.button_enviarRespuestas1);
 
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones1);
-        spinner1.setAdapter(adaptador1);
+        spinner11.setAdapter(adaptador1);
 
         ArrayAdapter<String> adaptador2 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones2);
-        spinner2.setAdapter(adaptador2);
+        spinner21.setAdapter(adaptador2);
 
         ArrayAdapter<String> adaptador3 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones3);
-        spinner3.setAdapter(adaptador3);
+        spinner31.setAdapter(adaptador3);
 
         ArrayAdapter<String> adaptador4 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones4);
-        spinner4.setAdapter(adaptador4);
+        spinner41.setAdapter(adaptador4);
 
         ArrayAdapter<String> adaptador5 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones5);
-        spinner5.setAdapter(adaptador5);
+        spinner51.setAdapter(adaptador5);
 
         ArrayAdapter<String> adaptador6 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones6);
-        spinner6.setAdapter(adaptador6);
+        spinner61.setAdapter(adaptador6);
 
-        leerDatosTest();
         puntuacion();
         pulsar();
     }
 
-    public void leerDatosTest() {
-        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
-        SQLiteDatabase db1 = adminHelper1.getReadableDatabase();
-        String[] columnas1 = {"dni", "resultado"};
-        String seleccion1 = "dni" + " = ?";
-        String[] condicion1= {dni};
-        Cursor c1 = db1.query("Test",columnas1,seleccion1,condicion1,null,null,null);
-        while(c1.moveToNext()) {
-            dniComprobante = c1.getString(c1.getColumnIndexOrThrow("dni"));
-        }
-        c1.close();
-        db1.close();
-    }
-
     public void puntuacion() {
-        datoSpinner1 = spinner1.getSelectedItem().toString();
-        datoSpinner2 = spinner2.getSelectedItem().toString();
-        datoSpinner3 = spinner3.getSelectedItem().toString();
-        datoSpinner4 = spinner4.getSelectedItem().toString();
-        datoSpinner5 = spinner5.getSelectedItem().toString();
-        datoSpinner6 = spinner6.getSelectedItem().toString();
+        datoSpinner1 = spinner11.getSelectedItem().toString();
+        datoSpinner2 = spinner21.getSelectedItem().toString();
+        datoSpinner3 = spinner31.getSelectedItem().toString();
+        datoSpinner4 = spinner41.getSelectedItem().toString();
+        datoSpinner5 = spinner51.getSelectedItem().toString();
+        datoSpinner6 = spinner61.getSelectedItem().toString();
 
         ct = 0;
 
@@ -122,33 +104,22 @@ public class VentanaTextUR extends AppCompatActivity {
         }
 
         if (ct <= 2) {
-            resultado = "Alzheimer";
+            resultadoUR = "Alzheimer";
         } else if (ct > 2 && ct <= 4) {
-            resultado = "Peligro de alzheimer";
+            resultadoUR = "Peligro de alzheimer";
         } else if (ct > 4 && ct <= 6) {
-            resultado = "Buena salud mental";
+            resultadoUR = "Buena salud mental";
         }
 
-        //Instancio la conexión con la BBDD
-        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "registro", null, 1);
-        //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
-        SQLiteDatabase db = adminHelper.getWritableDatabase();
 
-        ContentValues valores = new ContentValues();
-
-        valores.put("dni", dni);
-        valores.put("resultado", resultado);
-        //Incremento de la del num del paciente.
-        db.insert("Test", null, valores);
-        db.close();
     }
 
     public void pulsar() {
-        button_enviarRespuestas.setOnClickListener(new View.OnClickListener() {
+        button_enviarRespuestas1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(v.getContext(),VentanaNota.class);
-                i.putExtra("Nota", resultado);
+                Intent i = new Intent(v.getContext(),VentanaNotaUR.class);
+                i.putExtra("NotaUR", resultadoUR);
                 startActivity(i);
             }
         });

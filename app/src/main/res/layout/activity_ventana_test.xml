@@ -77,7 +77,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinner1"
+                    android:id="@+id/spinner11"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -118,7 +118,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinner2"
+                    android:id="@+id/spinner21"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -159,7 +159,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinner3"
+                    android:id="@+id/spinner31"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -214,7 +214,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinner4"
+                    android:id="@+id/spinner41"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -256,7 +256,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinner5"
+                    android:id="@+id/spinner51"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -310,7 +310,7 @@
                 android:orientation="horizontal">
 
                 <Spinner
-                    android:id="@+id/spinner6"
+                    android:id="@+id/spinner61"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_weight="1" />
@@ -323,7 +323,7 @@
                 android:orientation="horizontal">
 
                 <Button
-                    android:id="@+id/button_enviarRespuestas"
+                    android:id="@+id/button_enviarRespuestas1"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
