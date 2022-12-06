@@ -18,7 +18,7 @@ public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextPhone;
     private EditText editTextText_Dni;
     private Button button_GuardarDatos;
-    private String nombre, dni;
+    private String nombre, dni, dniComprobar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,25 +63,34 @@ public class VentanaFormulario extends AppCompatActivity {
                     } else if (!comprobarTlf) {
                         Toast.makeText(VentanaFormulario.this, "Formato teléfono incorrecto", Toast.LENGTH_SHORT).show();
                     } else {
-                        //Todos los datos están cubiertos para dar de alta un paciente.
+                        //leerDatosPaciente();
 
-                        //Preparar la información anterior en un array de valores para incluirlos en la consulta de insert
-                        ContentValues valores = new ContentValues();
+                       // if(dniComprobar.length() == 0) {
 
-                        valores.put("nombre",nombre);
-                        valores.put("telefono",tlf);
-                        valores.put("dni",dni);
-                        //Incremento de la del num del paciente.
-                        db.insert("Paciente",null,valores);
+                            //Todos los datos están cubiertos para dar de alta un paciente.
 
-                        //Vacío campos del formulario.
-                        editTextText_Nombre.setText("");
-                        editTextPhone.setText("");
-                        editTextText_Dni.setText("");
+                            //Preparar la información anterior en un array de valores para incluirlos en la consulta de insert
+                            ContentValues valores = new ContentValues();
 
-                        //Mensaje informativo
-                        Toast.makeText(v.getContext(), "Paciente dado de alta", Toast.LENGTH_SHORT).show();
-                        cambio(v);
+                            valores.put("nombre",nombre);
+                            valores.put("telefono",tlf);
+                            valores.put("dni",dni);
+                            //Incremento de la del num del paciente.
+                            db.insert("Paciente",null,valores);
+
+                            //Vacío campos del formulario.
+                            editTextText_Nombre.setText("");
+                            editTextPhone.setText("");
+                            editTextText_Dni.setText("");
+
+                            //Mensaje informativo
+                            Toast.makeText(v.getContext(), "Paciente dado de alta", Toast.LENGTH_SHORT).show();
+                            cambio(v);
+                     // } else {
+                       //     Toast.makeText(VentanaFormulario.this, "Dni ya introducido, introduzca uno nuevo", Toast.LENGTH_SHORT).show();
+                        //}
+
+
                     }
 
                 }
@@ -91,6 +100,20 @@ public class VentanaFormulario extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void leerDatosPaciente() {
+        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
+        SQLiteDatabase db1 = adminHelper1.getReadableDatabase();
+        String[] columnas = {"nombre", "telefono", "dni"};
+        String seleccion = "dni" + " = ?";
+        String[] condicion= {dni};
+        Cursor c1 = db1.query("Paciente",columnas,seleccion,condicion,null,null,null);
+        while(c1.moveToNext()) {
+            dniComprobar = c1.getString(c1.getColumnIndexOrThrow("dni"));
+        }
+        c1.close();
+        db1.close();
     }
 
     public boolean validarNif(String nif) {

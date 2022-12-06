@@ -140,9 +140,8 @@ public class VentanaTest extends AppCompatActivity {
         db.insert("Test", null, valores);
         db.close();
 
-
-
     }
+
 
     public void leerDatosTest() {
         AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);

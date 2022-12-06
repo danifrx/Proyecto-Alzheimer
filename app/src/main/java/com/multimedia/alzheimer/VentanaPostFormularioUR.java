@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class VentanaPostFormularioUR extends AppCompatActivity {
 
     private TextView textView_NombreBD, textView_ResultadoBD, textView_TlfBD, textView_DniBD;
-    private Button button_realizarTest1, button_cerrarSesion1;
+    private Button button_realizarTest1, button_cerrarSesion1, button_borrado;
     String dni;
 
     @Override
@@ -25,6 +25,7 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
         textView_DniBD = (TextView) findViewById(R.id.textView_DniBD);
         button_realizarTest1 = (Button) findViewById(R.id.button_realizarTest1);
         button_cerrarSesion1 = (Button) findViewById(R.id.button_cerrarSesion1);
+        button_borrado = (Button) findViewById(R.id.button_borrado);
 
         Intent i = getIntent();
         String nombre = i.getStringExtra("nombre");
@@ -39,6 +40,7 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
 
         realizarTest();
         cerrarSesion();
+        borrar();
     }
 
     public void realizarTest() {
@@ -57,6 +59,16 @@ public class VentanaPostFormularioUR extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(v.getContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    public void borrar() {
+        button_borrado.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),BorrarPaciente.class);
                 startActivity(i);
             }
         });

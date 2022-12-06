@@ -74,7 +74,7 @@ public class VentanaTestUR extends AppCompatActivity {
         dniUR = a.getStringExtra("DniUR");
 
         puntuacion();
-        actualizarDB();
+        //actualizarDB();
         pulsar();
     }
 
@@ -116,7 +116,7 @@ public class VentanaTestUR extends AppCompatActivity {
         }
 
         //resultadoUR = dniUR;
-
+        actualizarDB();
 
     }
 
