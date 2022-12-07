@@ -7,8 +7,12 @@
     tools:context=".VentanaTest">
 
     <ScrollView
-        android:layout_width="386dp"
-        android:layout_height="wrap_content">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -305,7 +309,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:minHeight="200px" />
+                    android:minHeight="200px"
+                    tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck" />
             </LinearLayout>
 
             <View
@@ -313,22 +318,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="?android:attr/listDivider" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/textView_p6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dpt"
-                    android:layout_weight="1"
-                    android:paddingTop="10dp"
-                    android:text="Pregunta 6"
-                    android:textAlignment="center"
-                    android:textSize="24sp" />
-            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
