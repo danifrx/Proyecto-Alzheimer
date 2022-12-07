@@ -87,6 +87,10 @@ public class BorrarPaciente extends AppCompatActivity {
                 if(dni.length()==0){
                     Toast.makeText(v.getContext(), "Rellene el campo del dni para realizar la baja", Toast.LENGTH_SHORT).show();
                 } else {
+                    boolean comprobar = validarNif(dni);
+                    if(!comprobar) {
+                        Toast.makeText(v.getContext(), "Formato dni incorrecto", Toast.LENGTH_SHORT).show();
+                    }
                     leerDatosPaciente();
                     if (dniComprobar == null) {
                         Toast.makeText(v.getContext(), "Paciente no encontrado", Toast.LENGTH_SHORT).show();
@@ -102,5 +106,8 @@ public class BorrarPaciente extends AppCompatActivity {
 
             }
         });
+    }
+    public boolean validarNif(String nif) {
+        return nif.matches(("^[0-9]{8}[A-Z]{1}$"));
     }
 }
