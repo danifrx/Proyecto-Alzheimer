@@ -17,8 +17,9 @@ public class VentanaFormulario extends AppCompatActivity {
     private EditText editTextText_Nombre;
     private EditText editTextPhone;
     private EditText editTextText_Dni;
-    private Button button_GuardarDatos;
+    private Button button_GuardarDatos, button_volverdelformulario;
     private String nombre, dni, dniComprobar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,20 @@ public class VentanaFormulario extends AppCompatActivity {
         editTextPhone = (EditText) findViewById(R.id.editTextPhone);
         editTextText_Dni = (EditText) findViewById(R.id.editTextText_Dni);
         button_GuardarDatos = (Button) findViewById(R.id.button_GuardarDatos);
+        button_volverdelformulario = (Button) findViewById(R.id.button_volverdelformulario);
 
         alta();
+        volver();
+    }
+
+    private void volver() {
+        button_volverdelformulario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(v.getContext(),MainActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     //Alta de paciente en base de datos

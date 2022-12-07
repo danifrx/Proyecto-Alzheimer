@@ -12,4 +12,10 @@
     <string name="introduzca_el_dni_del_paciente_que_desea_eliminar">Introduzca el DNI del paciente que desea eliminar:</string>
     <string name="borrar">Borrar</string>
     <string name="volver_al_men">Volver al menú</string>
+    <string name="nombre_formulario">Nombre:</string>
+    <string name="dni_formulario">DNI:</string>
+    <string name="telefono_formulario">Telefono:</string>
+    <string name="formulario_de_datos">Formulario de datos</string>
+    <string name="volver_al_menu">Volver al menú</string>
+    <string name="guardar_datos">Guardar datos</string>
 </resources>
