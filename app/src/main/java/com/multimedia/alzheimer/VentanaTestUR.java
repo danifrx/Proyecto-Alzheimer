@@ -46,13 +46,13 @@ public class VentanaTestUR extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ventana_test_ur);
 
-        spinner11 = (Spinner) findViewById(R.id.spinner11);
-        spinner21 = (Spinner) findViewById(R.id.spinner21);
-        spinner31 = (Spinner) findViewById(R.id.spinner31);
-        spinner41 = (Spinner) findViewById(R.id.spinner41);
-        spinner51 = (Spinner) findViewById(R.id.spinner51);
-        spinner61 = (Spinner) findViewById(R.id.spinner61);
-        button_er = (Button) findViewById(R.id.button_er);
+        spinner11 = (Spinner) findViewById(R.id.spinner1);
+        spinner21 = (Spinner) findViewById(R.id.spinner2);
+        spinner31 = (Spinner) findViewById(R.id.spinner3);
+        spinner41 = (Spinner) findViewById(R.id.spinner4);
+        spinner51 = (Spinner) findViewById(R.id.spinner5);
+        spinner61 = (Spinner) findViewById(R.id.spinner6);
+        button_er = (Button) findViewById(R.id.button_enviarRespuestas1);
 
         ArrayAdapter<String> adaptador1 = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, opciones1);
         spinner11.setAdapter(adaptador1);

@@ -81,6 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="¿Qué ve en la imagen?"
+                    android:textAlignment="center"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -131,6 +132,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="Va a comprar 13,45€ en carne. ¿Cuánto cambio recibiría si pagar con un billete de 20?"
+                    android:textAlignment="center"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -181,6 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="¿Cuál es el primer día de la semana? "
+                    android:textAlignment="center"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -231,6 +234,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="D-R-F-A-D-E-A-S-J-T-A-A-V"
+                    android:textAlignment="center"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -245,6 +249,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="¿Cuántas veces se repite la letra A?"
+                    android:textAlignment="center"
                     android:textSize="20sp" />
             </LinearLayout>
 
@@ -295,6 +300,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="¿Similitud entre naranja y plátano?"
+                    android:textAlignment="center"
                     android:textSize="20sp" />
 
             </LinearLayout>
@@ -359,6 +365,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="¿Hacia dónde apunta la flecha?"
+                    android:textAlignment="center"
                     android:textSize="20sp" />
             </LinearLayout>
 
