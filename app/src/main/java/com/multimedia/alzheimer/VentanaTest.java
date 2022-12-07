@@ -98,7 +98,6 @@ public class VentanaTest extends AppCompatActivity {
 
         valores.put("dni", dni);
         valores.put("resultado", resultado);
-        //Incremento de la del num del paciente.
         db.insert("Test", null, valores);
         db.close();
     }
@@ -216,13 +215,9 @@ public class VentanaTest extends AppCompatActivity {
                 } else if (ct > 2 && ct <= 4) {
                     resultado = "Peligro moderado";
                 } else if (ct > 4 && ct <= 6) {
-                    resultado = "Riesgo alto";
+                    resultado = "Riesgo bajo";
                 }
                 insertarDatos();
-                /*Intent i = new Intent(v.getContext(),VentanaNota.class);
-                String nota = String.valueOf(ct);
-                i.putExtra("Nota", nota);
-                startActivity(i);*/
                 Intent i = new Intent(v.getContext(),VentanaNota.class);
                 i.putExtra("Nota", resultado);
                 startActivity(i);

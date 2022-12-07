@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -37,8 +38,8 @@ public class VentanaTestUR extends AppCompatActivity {
     String datoSpinner4;
     String datoSpinner5;
     String datoSpinner6;
-    String resultadoUR = "";
-    String dniUR;
+    String resultadoUR;
+    String dniUR, resultado;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +75,6 @@ public class VentanaTestUR extends AppCompatActivity {
         Intent a = getIntent();
         dniUR = a.getStringExtra("DniUR");
 
-        insertarDatos();
         pulsarSpinner1();
         pulsarSpinner2();
         pulsarSpinner3();
@@ -83,6 +83,29 @@ public class VentanaTestUR extends AppCompatActivity {
         pulsarSpinner6();
 
         pulsar();
+    }
+
+    public void leerDatosTest() {
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this,"registro",null,1);
+        SQLiteDatabase db = adminHelper.getReadableDatabase();
+        String[] columnas = {"dni", "resultado"};
+        String seleccion = "dni" + " = ?";
+        String[] condicion= {dniUR};
+        Cursor c = db.query("Test",columnas,seleccion,condicion,null,null,null);
+        while(c.moveToNext()) {
+            resultado = c.getString(c.getColumnIndexOrThrow("resultado"));
+        }
+        c.close();
+        db.close();
+    }
+
+    public void comprobar() {
+        leerDatosTest();
+        if (resultado == null) {
+            insertarDatos();
+        } else {
+            actualizarDB();
+        }
     }
 
     public void insertarDatos() {
@@ -226,9 +249,9 @@ public class VentanaTestUR extends AppCompatActivity {
                 } else if (ct > 2 && ct <= 4) {
                     resultadoUR = "Peligro moderado";
                 } else if (ct > 4 && ct <= 6) {
-                    resultadoUR = "Riesgo alto";
+                    resultadoUR = "Riesgo bajo";
                 }
-                actualizarDB();
+                comprobar();
                 Intent i = new Intent(v.getContext(),VentanaNotaUR.class);
                 i.putExtra("NotaUR", resultadoUR);
                 startActivity(i);
