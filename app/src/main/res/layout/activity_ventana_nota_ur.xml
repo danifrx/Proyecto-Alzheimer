@@ -88,7 +88,7 @@
         android:id="@+id/textView_frase"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/su_puntuacin_es"
+        android:text="@string/su_estado"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline16"
