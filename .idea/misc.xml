@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_test.xml" value="0.36666666666666664" />
+        <entry key="..\:/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_test_ur.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/ccn-e/Documents/Proyecto-Alzheimer/app/src/main/res/layout/activity_main.xml" value="0.21" />
         <entry key="..\:/Users/ccn-e/Documents/Proyecto-Alzheimer/app/src/main/res/layout/activity_pruebas_imprimir_bd.xml" value="0.16893115942028986" />
         <entry key="..\:/Users/ccn-e/Documents/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_formulario.xml" value="0.25" />
@@ -23,7 +25,7 @@
         <entry key="..\:/Users/danid/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_nota_ur.xml" value="0.3333333333333333" />
         <entry key="..\:/Users/danid/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_post_formulario2.xml" value="0.32065217391304346" />
         <entry key="..\:/Users/danid/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_post_formulario_ur.xml" value="0.3671875" />
-        <entry key="..\:/Users/danid/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_test.xml" value="0.2574679943100996" />
+        <entry key="..\:/Users/danid/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_test.xml" value="0.4376163873370577" />
         <entry key="..\:/Users/danid/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/activity_ventana_test_ur.xml" value="0.37135416666666665" />
         <entry key="..\:/Users/danid/AndroidStudioProjects/Proyecto-Alzheimer/app/src/main/res/layout/ventana_nota.xml" value="0.3671875" />
       </map>

@@ -3,6 +3,7 @@ package com.multimedia.alzheimer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +15,7 @@ public class BorrarPaciente extends AppCompatActivity {
 
     private EditText editText_borrarPaciente;
     private Button button_borrar, button_volver;
-    private String dni;
+    private String dni, dniComprobar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +65,20 @@ public class BorrarPaciente extends AppCompatActivity {
         db1.close();
     }
 
+    public void leerDatosPaciente() {
+        AdminSQLiteOpenHelper adminHelper1 = new AdminSQLiteOpenHelper(this,"registro",null,1);
+        SQLiteDatabase db1 = adminHelper1.getReadableDatabase();
+        String[] columnas = {"nombre", "telefono", "dni"};
+        String seleccion = "dni" + " = ?";
+        String[] condicion= {dni};
+        Cursor c1 = db1.query("Paciente",columnas,seleccion,condicion,null,null,null);
+        while(c1.moveToNext()) {
+            dniComprobar = c1.getString(c1.getColumnIndexOrThrow("dni"));
+        }
+        c1.close();
+        db1.close();
+    }
+
     public void borrar() {
         button_borrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,11 +87,16 @@ public class BorrarPaciente extends AppCompatActivity {
                 if(dni.length()==0){
                     Toast.makeText(v.getContext(), "Rellene el campo del dni para realizar la baja", Toast.LENGTH_SHORT).show();
                 } else {
-                    borrarTest();
-                    borrarPaciente();
-                    Toast.makeText(v.getContext(), "Paciente eliminado", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(v.getContext(),MainActivity.class);
-                    startActivity(i);
+                    leerDatosPaciente();
+                    if (dniComprobar == null) {
+                        Toast.makeText(v.getContext(), "Paciente no encontrado", Toast.LENGTH_SHORT).show();
+                    } else {
+                        borrarTest();
+                        borrarPaciente();
+                        Toast.makeText(v.getContext(), "Paciente eliminado", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(v.getContext(), MainActivity.class);
+                        startActivity(i);
+                    }
                 }
 
 

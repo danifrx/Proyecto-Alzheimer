@@ -76,20 +76,18 @@ public class VentanaFormulario extends AppCompatActivity {
                     } else if (!comprobarTlf) {
                         Toast.makeText(VentanaFormulario.this, "Formato teléfono incorrecto", Toast.LENGTH_SHORT).show();
                     } else {
-                        //leerDatosPaciente();
-
-
-
+                        leerDatosPaciente();
+                        if (dniComprobar == null) {
                             //Todos los datos están cubiertos para dar de alta un paciente.
 
                             //Preparar la información anterior en un array de valores para incluirlos en la consulta de insert
                             ContentValues valores = new ContentValues();
 
-                            valores.put("nombre",nombre);
-                            valores.put("telefono",tlf);
-                            valores.put("dni",dni);
+                            valores.put("nombre", nombre);
+                            valores.put("telefono", tlf);
+                            valores.put("dni", dni);
                             //Incremento de la del num del paciente.
-                            db.insert("Paciente",null,valores);
+                            db.insert("Paciente", null, valores);
 
                             //Vacío campos del formulario.
                             editTextText_Nombre.setText("");
@@ -99,7 +97,9 @@ public class VentanaFormulario extends AppCompatActivity {
                             //Mensaje informativo
                             Toast.makeText(v.getContext(), "Paciente dado de alta", Toast.LENGTH_SHORT).show();
                             cambio(v);
-
+                        } else {
+                            Toast.makeText(v.getContext(), "Ya existe ese DNI, introduzca otro DNI válido", Toast.LENGTH_SHORT).show();
+                        }
 
                     }
 
