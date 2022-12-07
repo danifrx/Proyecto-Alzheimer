@@ -83,7 +83,7 @@ public class VentanaTest extends AppCompatActivity {
         pulsarSpinner5();
         pulsarSpinner6();
 
-        insertarDatos();
+
         pulsar();
 
     }
@@ -218,6 +218,7 @@ public class VentanaTest extends AppCompatActivity {
                 } else if (ct > 4 && ct <= 6) {
                     resultado = "Riesgo alto";
                 }
+                insertarDatos();
                 /*Intent i = new Intent(v.getContext(),VentanaNota.class);
                 String nota = String.valueOf(ct);
                 i.putExtra("Nota", nota);
