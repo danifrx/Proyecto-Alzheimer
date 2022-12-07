@@ -108,7 +108,6 @@ public class VentanaTest extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 datoSpinner1 = spinner1.getSelectedItem().toString();
-                Toast.makeText(view.getContext(), datoSpinner1, Toast.LENGTH_SHORT).show();
                 if (datoSpinner1.equals("Estrella")) {
                     ct++;
                 }
@@ -125,7 +124,6 @@ public class VentanaTest extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 datoSpinner2 = spinner2.getSelectedItem().toString();
-                Toast.makeText(view.getContext(), datoSpinner2, Toast.LENGTH_SHORT).show();
                 if (datoSpinner2.equals("6.55")) {
                     ct++;
                 }
@@ -142,7 +140,6 @@ public class VentanaTest extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 datoSpinner3 = spinner3.getSelectedItem().toString();
-                Toast.makeText(view.getContext(), datoSpinner3, Toast.LENGTH_SHORT).show();
                 if (datoSpinner3.equals("Lunes")) {
                     ct++;
                 }
@@ -159,7 +156,6 @@ public class VentanaTest extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 datoSpinner4 = spinner4.getSelectedItem().toString();
-                Toast.makeText(view.getContext(), datoSpinner4, Toast.LENGTH_SHORT).show();
                 if (datoSpinner4.equals("4")) {
                     ct++;
                 }
@@ -176,7 +172,6 @@ public class VentanaTest extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 datoSpinner5 = spinner5.getSelectedItem().toString();
-                Toast.makeText(view.getContext(), datoSpinner5, Toast.LENGTH_SHORT).show();
                 if (datoSpinner5.equals("Son frutas")) {
                     ct++;
                 }
@@ -193,7 +188,6 @@ public class VentanaTest extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
                 datoSpinner6 = spinner6.getSelectedItem().toString();
-                Toast.makeText(view.getContext(), datoSpinner6, Toast.LENGTH_SHORT).show();
                 if (datoSpinner6.equals("Hacia la derecha")) {
                     ct++;
                 }
