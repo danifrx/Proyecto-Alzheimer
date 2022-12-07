@@ -212,11 +212,11 @@ public class VentanaTest extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ct <= 2) {
-                    resultado = "Alzheimer";
+                    resultado = "Riesgo alto";
                 } else if (ct > 2 && ct <= 4) {
-                    resultado = "Peligro de alzheimer";
+                    resultado = "Peligro moderado";
                 } else if (ct > 4 && ct <= 6) {
-                    resultado = "Buena salud mental";
+                    resultado = "Riesgo alto";
                 }
                 /*Intent i = new Intent(v.getContext(),VentanaNota.class);
                 String nota = String.valueOf(ct);

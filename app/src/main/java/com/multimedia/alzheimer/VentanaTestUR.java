@@ -206,11 +206,11 @@ public class VentanaTestUR extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (ct <= 2) {
-                    resultadoUR = "Alzheimer";
+                    resultadoUR = "Riesgo alto";
                 } else if (ct > 2 && ct <= 4) {
-                    resultadoUR = "Peligro de alzheimer";
+                    resultadoUR = "Peligro moderado";
                 } else if (ct > 4 && ct <= 6) {
-                    resultadoUR = "Buena salud mental";
+                    resultadoUR = "Riesgo alto";
                 }
                 Intent i = new Intent(v.getContext(),VentanaNotaUR.class);
                 i.putExtra("NotaUR", resultadoUR);
