@@ -78,7 +78,7 @@ public class VentanaFormulario extends AppCompatActivity {
                     } else {
                         //leerDatosPaciente();
 
-                       // if(dniComprobar.length() == 0) {
+
 
                             //Todos los datos están cubiertos para dar de alta un paciente.
 
@@ -99,9 +99,6 @@ public class VentanaFormulario extends AppCompatActivity {
                             //Mensaje informativo
                             Toast.makeText(v.getContext(), "Paciente dado de alta", Toast.LENGTH_SHORT).show();
                             cambio(v);
-                     // } else {
-                       //     Toast.makeText(VentanaFormulario.this, "Dni ya introducido, introduzca uno nuevo", Toast.LENGTH_SHORT).show();
-                        //}
 
 
                     }
