@@ -37,7 +37,7 @@ public class VentanaTestUR extends AppCompatActivity {
     String datoSpinner4;
     String datoSpinner5;
     String datoSpinner6;
-    String resultadoUR;
+    String resultadoUR = "";
     String dniUR;
 
     @Override
@@ -74,14 +74,30 @@ public class VentanaTestUR extends AppCompatActivity {
         Intent a = getIntent();
         dniUR = a.getStringExtra("DniUR");
 
+        insertarDatos();
         pulsarSpinner1();
         pulsarSpinner2();
         pulsarSpinner3();
         pulsarSpinner4();
         pulsarSpinner5();
         pulsarSpinner6();
-        actualizarDB();
+
         pulsar();
+    }
+
+    public void insertarDatos() {
+        //Instancio la conexión con la BBDD
+        AdminSQLiteOpenHelper adminHelper = new AdminSQLiteOpenHelper(this, "registro", null, 1);
+        //Abro la conexión de base de datos, con permisos de escritura para realizar las altas
+        SQLiteDatabase db = adminHelper.getWritableDatabase();
+
+        ContentValues valores = new ContentValues();
+
+        valores.put("dni", dniUR);
+        valores.put("resultado", resultadoUR);
+        //Incremento de la del num del paciente.
+        db.insert("Test", null, valores);
+        db.close();
     }
 
     public void pulsarSpinner1() {
@@ -212,6 +228,7 @@ public class VentanaTestUR extends AppCompatActivity {
                 } else if (ct > 4 && ct <= 6) {
                     resultadoUR = "Riesgo alto";
                 }
+                actualizarDB();
                 Intent i = new Intent(v.getContext(),VentanaNotaUR.class);
                 i.putExtra("NotaUR", resultadoUR);
                 startActivity(i);
