@@ -138,7 +138,7 @@ public class VentanaFormulario extends AppCompatActivity {
     }
 
     public void cambio (View v) {
-        //Mando al usuario a la activity de VentanaPostFormulario
+        //Mando al usuario a la activity de VentanaPostFormulario2
         Intent i = new Intent(v.getContext(),VentanaPostFormulario2.class);
         i.putExtra("Nombre", nombre);
         i.putExtra("Dni", dni);
