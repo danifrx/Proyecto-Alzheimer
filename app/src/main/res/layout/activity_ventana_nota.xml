@@ -90,7 +90,7 @@
         android:layout_height="wrap_content"
         android:text="@string/su_puntuacion_es"
         android:textAlignment="center"
-        android:textSize="40sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toStartOf="@+id/guideline16"
         app:layout_constraintStart_toStartOf="@+id/guideline15"
