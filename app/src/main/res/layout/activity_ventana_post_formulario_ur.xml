@@ -54,19 +54,19 @@
         android:layout_height="wrap_content"
         android:text="@string/resultado_anterior"
         android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/guideline39"
+        app:layout_constraintBottom_toTopOf="@+id/guideline31"
         app:layout_constraintEnd_toStartOf="@+id/guideline38"
         app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toTopOf="@+id/guideline37" />
+        app:layout_constraintTop_toTopOf="@+id/guideline40" />
 
     <TextView
         android:id="@+id/textView_ResultadoBD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/guideline39"
+        app:layout_constraintBottom_toTopOf="@+id/guideline31"
         app:layout_constraintEnd_toStartOf="@+id/guideline30"
         app:layout_constraintStart_toStartOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="@+id/guideline37" />
+        app:layout_constraintTop_toTopOf="@+id/guideline40" />
 
     <TextView
         android:id="@+id/textView_Tlf"
@@ -142,19 +142,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dni"
-        app:layout_constraintBottom_toTopOf="@+id/guideline31"
+        app:layout_constraintBottom_toTopOf="@+id/guideline39"
         app:layout_constraintEnd_toStartOf="@+id/guideline38"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/guideline29"
-        app:layout_constraintTop_toTopOf="@+id/guideline40" />
+        app:layout_constraintTop_toTopOf="@+id/guideline37"
+        app:layout_constraintVertical_bias="0.487" />
 
     <TextView
         android:id="@+id/textView_DniBD"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/guideline31"
+        app:layout_constraintBottom_toTopOf="@+id/guideline39"
         app:layout_constraintEnd_toStartOf="@+id/guideline30"
         app:layout_constraintStart_toStartOf="@+id/guideline38"
-        app:layout_constraintTop_toTopOf="@+id/guideline40" />
+        app:layout_constraintTop_toTopOf="@+id/guideline37" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline37"
