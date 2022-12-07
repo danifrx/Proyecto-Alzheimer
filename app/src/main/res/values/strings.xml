@@ -18,4 +18,6 @@
     <string name="formulario_de_datos">Formulario de datos</string>
     <string name="volver_al_menu">Volver al menú</string>
     <string name="guardar_datos">Guardar datos</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="su_puntuacion_es">Su puntuación es:</string>
 </resources>
