@@ -98,7 +98,7 @@ public class VentanaFormulario extends AppCompatActivity {
                             Toast.makeText(v.getContext(), "Paciente dado de alta", Toast.LENGTH_SHORT).show();
                             cambio(v);
                         } else {
-                            Toast.makeText(v.getContext(), "Ya existe ese DNI, introduzca otro DNI válido", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(v.getContext(), "Ya existe ese DNI, introduzca otro DNI válido, vuelva al menú principal y vuelva a intentarlo", Toast.LENGTH_SHORT).show();
                         }
 
                     }

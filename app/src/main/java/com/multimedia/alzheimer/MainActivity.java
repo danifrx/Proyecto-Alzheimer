@@ -51,8 +51,6 @@ public class MainActivity extends AppCompatActivity {
         button_iniciarsesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
                 //Leo el nombre y el DNI introducido por el usuario
                 nombre = editText_nombre.getText().toString();
                 dni = editText_dni.getText().toString();
@@ -76,19 +74,22 @@ public class MainActivity extends AppCompatActivity {
                     leerDatosTest();
 
                    if (pacientes.size() > 0) {
-                        Toast.makeText(MainActivity.this, "Se ha encontrado al paciente", Toast.LENGTH_SHORT).show();
-                       //Paso la nota anterior del text realizado por el usuario a la activity de activity_ventana_nota.xml
-                       Intent i = new Intent(v.getContext(),VentanaPostFormularioUR.class);
-                       i.putExtra("nombre",nombre1);
-                       i.putExtra("tlf",tlf);
-                       i.putExtra("dni",dni1);
-                       i.putExtra("res", resultado);
-                       startActivity(i);
+                       if (nombre.equals(nombre1) && (dni.equals(dni1))) {
+                           //Paso la nota anterior del text realizado por el usuario a la activity de activity_ventana_nota.xml
+                           Intent i = new Intent(v.getContext(),VentanaPostFormularioUR.class);
+                           i.putExtra("nombre",nombre1);
+                           i.putExtra("tlf",tlf);
+                           i.putExtra("dni",dni1);
+                           i.putExtra("res", resultado);
+                           startActivity(i);
+                       } else {
+                           Toast.makeText(MainActivity.this, "El usuario y el DNI no coinciden", Toast.LENGTH_SHORT).show();
+                       }
+
                     } else {
                         Toast.makeText(MainActivity.this, "No se ha encontrado al paciente", Toast.LENGTH_SHORT).show();
                     }
                 }
-
             }
         });
     }
