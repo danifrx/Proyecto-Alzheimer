@@ -1,3 +1,27 @@
 <resources>
     <string name="app_name">Alzheimer</string>
+    <string name="datos_del_usuario">Datos del usuario</string>
+    <string name="qu_deseas_hacer">¿Qué deseas hacer?</string>
+    <string name="realizar_test">Realizar test</string>
+    <string name="cerrar_sesi_n">Cerrar sesión</string>
+    <string name="nombre">Nombre:</string>
+    <string name="resultado_anterior">Resultado anterior:</string>
+    <string name="tlf">Tlf:</string>
+    <string name="dni">DNI:</string>
+    <string name="borrado_de_paciente">Borrado de paciente</string>
+    <string name="introduzca_el_dni_del_paciente_que_desea_eliminar">Introduzca el DNI del paciente que desea eliminar:</string>
+    <string name="borrar">Borrar</string>
+    <string name="volver_al_men">Volver al menú</string>
+    <string name="nombre_formulario">Nombre:</string>
+    <string name="dni_formulario">DNI:</string>
+    <string name="telefono_formulario">Telefono:</string>
+    <string name="formulario_de_datos">Formulario de datos</string>
+    <string name="volver_al_menu">Volver al menú</string>
+    <string name="guardar_datos">Guardar datos</string>
+    <string name="cerrar_sesion">Cerrar sesión</string>
+    <string name="su_puntuacion_es">Su puntuación es:</string>
+    <string name="cerrar_sesin">Cerrar sesión</string>
+    <string name="su_puntuacin_es">Su puntuación es:</string>
+    <string name="su_estado">Su estado:</string>
+    <string name="su_estado1">Su estado:</string>
 </resources>

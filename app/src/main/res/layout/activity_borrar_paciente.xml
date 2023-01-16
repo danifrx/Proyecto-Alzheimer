@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BorrarPaciente">
+
+    <TextView
+        android:id="@+id/textView_borrar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/borrado_de_paciente"
+        android:textAlignment="center"
+        android:textDirection="locale"
+        android:textIsSelectable="false"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline41"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+    <TextView
+        android:id="@+id/textView_peticion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:labelFor="@id/editText_borrarPaciente"
+        android:text="@string/introduzca_el_dni_del_paciente_que_desea_eliminar"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline44"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintTop_toTopOf="@+id/guideline41"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline41"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.25" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline44"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline45"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.55" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline47"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline46"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline49"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.9" />
+
+    <EditText
+        android:id="@+id/editText_borrarPaciente"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:importantForAutofill="no"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline45"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintTop_toTopOf="@+id/guideline44"
+        app:layout_constraintVertical_bias="0.5"
+        tools:ignore="SpeakableTextPresentCheck,DuplicateSpeakableTextCheck,DuplicateSpeakableTextCheck" />
+
+    <Button
+        android:id="@+id/button_borrar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/borrar"
+        app:layout_constraintBottom_toTopOf="@+id/guideline46"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintTop_toTopOf="@+id/guideline47" />
+
+    <Button
+        android:id="@+id/button_volver"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/volver_al_men"
+        app:layout_constraintBottom_toTopOf="@+id/guideline49"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintStart_toStartOf="@+id/guideline42"
+        app:layout_constraintTop_toTopOf="@+id/guideline48" />
+</androidx.constraintlayout.widget.ConstraintLayout>
